@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regnespill</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href="index.html"><i class="fa fa-house"></i></a>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav>
+            <a href="multiplikasjon.html">Multiplikasjon</a>
+            <a href="substraksjon.html">Substraksjon</a>
+            <a href="addisjon.html" class="active">Addisjon</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Regnespill</h1>
+
+        <h2>Addisjon</h2>
+
+        <p id="oppgave"></p>
+
+        <input type="number" id="svar-input">
+
+        <button id="svar-knapp">Sjekk svar</button>
+
+        <button id="ny-oppgave">Ny oppgave</button>
+
+        <p id="tilbakemelding"></p>
+
+        <p id="poeng">Poeng: </p>
+    </main>
+
+    <script>
+        let svarInput = document.getElementById('svar-input')
+        let svarKnapp = document.getElementById('svar-knapp')
+
+        svarKnapp.addEventListener('click', sjekkSvar)
+
+        let tilbakemeldingEl = document.getElementById('tilbakemelding')
+        let oppgaveEL = document.getElementById('oppgave')
+        let bodyEl = document.querySelector('body')
+        let poengEl = document.getElementById('poeng')
+        let nyOppgaveEl = document.getElementById('ny-oppgave')
+
+        let poeng = 0
+
+        function sjekkSvar(){
+            console.log("Sjekker svaret")
+
+            let svar = Number(svarInput.value)
+
+            if (svar === a+b){
+                tilbakemelding.innerHTML = "Korrekt! Bra jobba :)"
+                bodyEl.style.backgroundColor = 'green'
+                poeng += 1
+                poengEl.innerHTML = "Poeng: " + `${poeng}`
+
+            }else {
+                tilbakemelding.innerHTML = "Feil svar! Prøv igjen"
+                bodyEl.style.backgroundColor = 'red'
+                poengEl.innerHTML = "Poeng: " + 0
+                poeng = 0
+            }
+
+            svarKnapp.style.display = 'none'
+            nyOppgaveEl.style.display = 'block'
+        }
+
+        let a
+        let b
+        function lagOppgave(){
+            a = Math.floor(Math.random()*101)
+            b = Math.floor(Math.random()*101)
+
+            oppgave.innerHTML = `${a} + ${b} = ?`
+        }
+
+        nyOppgaveEl.addEventListener('click', nyOpp)
+
+        function nyOpp(){
+            tilbakemeldingEl.innerHTML = "";
+
+            svarInput.value = "";
+
+            bodyEl.style.backgroundColor = '';
+
+            svarKnapp.style.display = 'block'
+
+            lagOppgave()
+
+            nyOppgaveEl.style.display = 'none'
+        }
+
+        nyOpp();
+
+
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
