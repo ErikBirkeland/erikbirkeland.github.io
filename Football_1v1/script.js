@@ -3,7 +3,7 @@ let ctx = canvas.getContext('2d')
 
 let spiller1 = {
     x: 50,
-    y: canvas.height / 2,
+    y: canvas.height / 2 - 50,
     width: 40,
     height: 80,
     color: "red", 
@@ -12,7 +12,7 @@ let spiller1 = {
 
 let spiller2 = {
     x: canvas.width - 70,
-    y: canvas.height / 2,
+    y: canvas.height / 2 - 50,
     width: 40,
     height: 80,
     color: "blue", 
@@ -20,8 +20,8 @@ let spiller2 = {
 }
 
 let ball = {
-    x: canvas.width / 2,
-    y: canvas.height / 2,
+    x: 10,
+    y: 10,
     radius: 15,
     color: "black",
     speed: 3,
