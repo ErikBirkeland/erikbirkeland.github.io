@@ -9,6 +9,10 @@ body {
   text-align: center;
 }
 
+canvas {
+  border: 2px solid black;
+}
+
 /* Navbar */
 header {
     margin: 0;
@@ -76,7 +80,7 @@ header {
       flex-direction: column;
     }
   
-    .fa.fa-house {
+    .fa.fa-futbol {
       display: flex;
     }
   
