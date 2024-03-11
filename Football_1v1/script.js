@@ -31,7 +31,7 @@ let ball = {
 
 let goal1 = {
     x: 0,
-    y: canvas.height / 2 - 40,
+    y: canvas.height / 2,
     width: 10,
     height: 80,
     color: "pink"
@@ -39,7 +39,7 @@ let goal1 = {
 
 let goal2 = {
     x: canvas.width - 10,
-    y: canvas.height / 2 - 40,
+    y: canvas.height / 2,
     width: 10,
     height: 80,
     color: "pink"
