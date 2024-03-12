@@ -9,6 +9,7 @@ function showNav () {
     navE1.classList.toggle('show')
 }
 
+let startBtn= document.getElementById('start-spill')
 let canvas = document.getElementById('canvas')
 let ctx = canvas.getContext('2d')
 
@@ -56,23 +57,28 @@ let goal2 = {
     color: "pink"
 }
 
-function tegnSpiller() {
-    ctx.fillStyle = spiller.color
-    ctx.fillRect(spiller.x, spiller.y, spiller. width, spiller.height)
+startBtn.addEventListener('click', startSpill)
+
+function startSpill(){
+    function tegnSpiller() {
+        ctx.fillStyle = spiller.color
+        ctx.fillRect(spiller.x, spiller.y, spiller. width, spiller.height)
+    }
+    
+    function tegnBall() {
+        ctx.beginPath()
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2)
+        ctx.fillStyle = ball.color
+        ctx.fill()
+        ctx.closePath()
+    }
+    
+    function tegnGoal() {
+        ctx.fillStyle = goal.color
+        ctx.fillRect(goal.x, goal.y, goal,width, goal.height)
+    }
 }
 
-function tegnBall() {
-    ctx.beginPath()
-    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2)
-    ctx.fillStyle = ball.color
-    ctx.fill()
-    ctx.closePath()
-}
-
-function tegnGoal() {
-    ctx.fillStyle = goal.color
-    ctx.fillRect(goal.x, goal.y, goal,width, goal.height)
-}
 
 
 
