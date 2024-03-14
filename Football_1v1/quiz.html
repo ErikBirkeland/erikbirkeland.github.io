@@ -28,11 +28,13 @@
 
       <p id = "query"></p>
 
-      <input type="text">
+      <input id = "answer" type="text">
 
       <p id = "feedback"></p>
 
       <button id= "newQuestion">Get question</button>
+
+      <button id="submit">Submit answer</button>
     </main>
 
     <footer>
@@ -42,11 +44,14 @@
     <script src="script.js"></script>
 
     <script>
-      let btnEl = document.getElementById('newQuestion')
+      let newbtnEl = document.getElementById('newQuestion')
       let questionEl = document.getElementById('query')
       let feedbackEl = document.getElementById('feedback')
+      let answerEl = document.getElementById('answer')
+      let subbtnEl = document.getElementById('submit')
+      let data
 
-      btnEl.addEventListener('click', getQuestion)
+      newbtnEl.addEventListener('click', getQuestion)
 
       async function getQuestion(){
         let url = 'https://the-trivia-api.com/api/questions?categories=sport_and_leisure&limit=1&difficulty=medium&tags=soccer'
@@ -57,16 +62,27 @@
           }
         })
 
-        let data = await response.json()
+        data = await response.json()
 
         //console.log(response)
 
-        //console.log(data)
+        console.log(data)
 
         questionEl.innerHTML = data[0].question
       }
 
-      
+      subbtnEl.addEventListener('click', answer)
+
+      function answer (){
+        if (answerEl.value == data[0].correctAnswer){
+          feedbackEl.innerHTML ="correct +10 coins"
+        }
+        else{
+          feedbackEl.innerHTML = "wrong"
+        }
+      }
+
+
     </script>
 </body>
 </html>
