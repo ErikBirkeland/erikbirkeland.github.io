@@ -27,6 +27,26 @@ h3 {
 
 main {
   flex: 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#index-main {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#hvordan-spille {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+}
+
+@media(max-width: 730px) {
+  #index-main {
+    grid-template-columns: 1fr;
+  }
 }
 
 footer {
@@ -50,7 +70,7 @@ button {
   cursor: pointer;
 }
 
-#spilltaster {
+.spilltaster {
   width: 140px;
   height: 140px;
 }
