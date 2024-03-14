@@ -25,7 +25,13 @@
 
     <main>
       <h1>Football Quiz</h1>
+
       <p id = "query"></p>
+
+      <input type="text">
+
+      <p id = "feedback"></p>
+
       <button id= "newQuestion">Get question</button>
     </main>
 
@@ -33,13 +39,12 @@
       <p>&copy; 2024 <br><br> Made by Ola & Erik</p>
     </footer>
 
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
 
     <script>
       let btnEl = document.getElementById('newQuestion')
       let questionEl = document.getElementById('query')
-
-      questionEl.innerHTML = ""
+      let feedbackEl = document.getElementById('feedback')
 
       btnEl.addEventListener('click', getQuestion)
 
@@ -54,10 +59,14 @@
 
         let data = await response.json()
 
-        console.log(data)
+        //console.log(response)
 
-        questionEl.innerHTML = data.question
+        //console.log(data)
+
+        questionEl.innerHTML = data[0].question
       }
+
+      
     </script>
 </body>
 </html>
