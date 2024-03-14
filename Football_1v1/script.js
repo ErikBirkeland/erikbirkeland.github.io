@@ -1,12 +1,12 @@
-const burgerE1 = document.querySelector('.fa-bars')
+const burgerEl = document.querySelector('.fa-bars')
 
 
-const navE1 = document.querySelector('nav')
+const navEl = document.querySelector('nav')
 
-burgerE1.addEventListener('click', showNav)
+burgerEl.addEventListener('click', showNav)
 
 function showNav () {
-    navE1.classList.toggle('show')
+    navEl.classList.toggle('show')
 }
 
 
