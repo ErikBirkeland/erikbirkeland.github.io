@@ -40,27 +40,13 @@ footer {
   margin-top: auto;
 }
 
-#play {
-  padding: 30px 70px;
-  margin: 10px;
-  background-color: grey;
-  color: white;
-  border-radius: 0.5rem;
-  font-size: 20px;
-}
-
-#start-spill {
+button {
   margin: 10px;
   padding: 30px 70px;
   background-color: grey;
   color: white;
   border-radius: 0.5rem;
   font-size: 20px;
-}
-
-#play:hover {
-  transform: scale(1.1) translateY(6px);
-  transition: .4s;
   cursor: pointer;
 }
 
