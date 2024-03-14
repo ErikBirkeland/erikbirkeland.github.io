@@ -25,15 +25,39 @@
 
     <main>
       <h1>Football Quiz</h1>
+      <p id = "query"></p>
+      <button id= "newQuestion">Get question</button>
     </main>
 
     <footer>
       <p>&copy; 2024 <br><br> Made by Ola & Erik</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+
     <script>
-      
+      let btnEl = document.getElementById('newQuestion')
+      let questionEl = document.getElementById('query')
+
+      questionEl.innerHTML = ""
+
+      btnEl.addEventListener('click', getQuestion)
+
+      async function getQuestion(){
+        let url = 'https://the-trivia-api.com/api/questions?categories=sport_and_leisure&limit=1&difficulty=medium&tags=soccer'
+
+        let response = await fetch(url, {
+          headers: {
+          'Content-Type': 'application/json'
+          }
+        })
+
+        let data = await response.json()
+
+        console.log(data)
+
+        questionEl.innerHTML = data.question
+      }
     </script>
 </body>
 </html>
