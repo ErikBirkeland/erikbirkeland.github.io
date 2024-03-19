@@ -5,16 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football Quiz</title>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        width: 200px;
+        padding: 20px;
+      }
+    </style>
 
 </head>
 <body>
     <header>
         <div class="topnav">
             <a href="index.html"><i class="fa-solid fa-futbol"></i></a>
-            <i class="fa-brands fa-bitcoin"></i>
+            
+              
+              <i class="fa-brands fa-bitcoin"></i>
+              
+              <span id="cash"></span>
+          
+            
+            
             <i class="fa-solid fa-bars"></i>
           </div>
           
@@ -27,11 +47,11 @@
     <main>
       <h1>Football Quiz</h1>
 
-      <p id = "query"></p>
+      <p id = "query">&nbsp;</p>
 
       <input id = "answer" type="text">
 
-      <p id = "feedback"></p>
+      <p id = "feedback">&nbsp;</p>
 
       <button id= "newQuestion">Get question</button>
 

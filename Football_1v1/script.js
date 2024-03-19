@@ -18,6 +18,7 @@ let questionEl = document.getElementById('query')
 let feedbackEl = document.getElementById('feedback')
 let answerEl = document.getElementById('answer')
 let subbtnEl = document.getElementById('submit')
+let cashEl = document.getElementById('cash')
 let data
 
 newQuestion.style.display = 'block'
@@ -52,6 +53,7 @@ function answer (){
     if (answerEl.value == data[0].correctAnswer){
         feedbackEl.innerHTML ="correct +10 coins"
         coins = coins+10
+        cashEl.innerHTML = `${coins}`
     }
     else{
         feedbackEl.innerHTML = "wrong"
@@ -59,3 +61,5 @@ function answer (){
     newQuestion.style.display = 'block'
     submit.style.display = 'none'
     }
+
+    
