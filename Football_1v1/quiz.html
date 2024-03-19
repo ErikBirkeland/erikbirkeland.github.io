@@ -9,6 +9,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <style>
+      main{
+        align-items: center;
+      }
+    </style>
+
 </head>
 <body>
     <header>
@@ -52,6 +58,9 @@
       let subbtnEl = document.getElementById('submit')
       let data
 
+      newQuestion.style.display = 'block'
+      submit.style.display = 'none'
+
       newbtnEl.addEventListener('click', getQuestion)
 
       async function getQuestion(){
@@ -70,9 +79,14 @@
         console.log(data)
 
         questionEl.innerHTML = data[0].question
+
+        newQuestion.style.display = 'none'
+        submit.style.display = 'block'
       }
 
       subbtnEl.addEventListener('click', answer)
+
+      
 
       function answer (){
         if (answerEl.value == data[0].correctAnswer){
@@ -81,6 +95,8 @@
         else{
           feedbackEl.innerHTML = "wrong"
         }
+        newQuestion.style.display = 'block'
+        submit.style.display = 'none'
       }
 
 
