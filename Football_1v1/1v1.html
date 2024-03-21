@@ -29,22 +29,60 @@
       </nav>
     </header>
 
-    <main>
+    <canvas id="canvas1"></canvas>
+
+    <img id="player1" src="bilder/woman.png">
+
+    <!--<main>
       <p id="resultat">Resultat skal her</p>
       
-      <canvas id="canvas"></canvas>
+      <canvas id="canvas1"></canvas>
 
       <button id="start-spill">Start game</button>
-    </main>
+    </main>-->
 
     <script src="script.js"></script>
 
     <script>
+
+     /*window.addEventListener('load', function(){
+        let canvasEl = document.getElementById('canvas1')
+        let ctx = canvas.getContext('2d')
+        canvas.width = 500;
+        canvas.height = 500;
+
+        class Game{
+          constructor(width, height){
+            this.width = width
+            this.height = height
+          }
+          update (){
+
+          }
+          draw(){
+
+          }
+        }
+      })
+
+      class Player1{
+        constructor(game){
+          this.game = game
+          this.height = 91.3
+          this.width = 100
+        }
+      }
+
+      player = Player1
+
+      player = {
+        height: 91.3,
+        width: 100
+      }
       let startBtn= document.getElementById('start-spill')
       let canvas = document.getElementById('canvas')
       let ctx = canvas.getContext('2d')
 
-      /*
       let spiller1 = {
         x: 50,
         y: canvas.height / 2 - 50,
