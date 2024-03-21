@@ -82,9 +82,17 @@ main {
 }
 
 .question-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   margin: 20px;
+}
+
+.question-container label {
+  margin-bottom: 20px;
+}
+
+.question-container input {
+  margin-bottom: 20px;
 }
 
 footer {

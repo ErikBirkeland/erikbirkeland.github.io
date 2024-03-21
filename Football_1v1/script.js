@@ -78,6 +78,9 @@ async function getQuestion(){
 
     newQuestion.style.display = 'none'
     submit.style.display = 'block'
+
+    feedbackEl.innerHTML = '';
+
 }
 
 subbtnEl.addEventListener('click', answer)
@@ -89,15 +92,28 @@ if(!localStorage.teller){
 }
 
 function answer (){
-    if (answerEl.value == data[0].correctAnswer){
+    const radioButtons = document.getElementsByName("q");
+
+    // Loop through all radio buttons to find the checked one
+    let selectedAnswer;
+    for (let i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            selectedAnswer = radioButtons[i].value;
+        }
+    }
+        
+    if (selectedAnswer == data[0].correctAnswer){
         feedbackEl.innerHTML ="correct +10 coins"
         localStorage.teller = Number(localStorage.teller) + 10
         cashEl.innerHTML = `${localStorage.teller}`
-
-    }
-    else{
+    }else{
         feedbackEl.innerHTML = "wrong"
     }
+
+    for (let i = 0; i < radioButtons.length; i++) {
+        radioButtons[i].checked = false;
+    }
+
     newQuestion.style.display = 'block'
     submit.style.display = 'none'
 }
