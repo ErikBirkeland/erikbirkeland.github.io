@@ -1,3 +1,4 @@
+// Kode til navbar
 const burgerEl = document.querySelector('.fa-bars')
 
 
@@ -9,9 +10,6 @@ function showNav () {
     navEl.classList.toggle('show')
 }
 
-let coins = 0
-
-
 // Kode til quiz-siden
 let newbtnEl = document.getElementById('newQuestion')
 let questionEl = document.getElementById('query')
@@ -20,6 +18,8 @@ let answerEl = document.getElementById('answer')
 let subbtnEl = document.getElementById('submit')
 let cashEl = document.querySelector('.cash')
 let data
+
+cashEl.innerHTML = Number(localStorage.teller)
 
 newQuestion.style.display = 'block'
 submit.style.display = 'none'
@@ -45,21 +45,34 @@ async function getQuestion(){
 
     newQuestion.style.display = 'none'
     submit.style.display = 'block'
-    }
+}
 
 subbtnEl.addEventListener('click', answer)
+
+if(!localStorage.teller){
+    localStorage.teller = 0
+}else{
+    localStorage.teller = Number(localStorage.teller)
+}
 
 function answer (){
     if (answerEl.value == data[0].correctAnswer){
         feedbackEl.innerHTML ="correct +10 coins"
-        coins = coins+10
-        cashEl.innerHTML = `${coins}`
+        localStorage.teller = Number(localStorage.teller) + 10
+        cashEl.innerHTML = `${localStorage.teller}`
+
     }
     else{
         feedbackEl.innerHTML = "wrong"
     }
     newQuestion.style.display = 'block'
     submit.style.display = 'none'
-    }
+}
+
+
+
+
+
+
 
     
