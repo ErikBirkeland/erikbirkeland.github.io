@@ -24,7 +24,6 @@ body {
   display: flex;
   flex-direction: column;
   
-  
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -32,14 +31,18 @@ body {
 
 h1 {
   font-size: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 h2 {
   font-size: 30px;
+  margin-top: 30px;
 }
 
 h3 {
   font-size: 20px;
+  margin-top: 30px;
 }
 
 p {
@@ -54,6 +57,9 @@ main {
 
 .beskrivelse {
   font-size: 25px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 #index-main {
@@ -63,22 +69,30 @@ main {
   grid-gap: 80px;
 }
 
-#hvordan-spille {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: space-around;
-}
-
 @media(max-width: 730px) {
   #index-main {
     grid-template-columns: 1fr;
   }
 }
 
+#hvordan-spille {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
 footer {
   font-size: 20px;
   background-color: grey;
   width: 100%;
+
+padding: 20px;
   
   display: flex;
   justify-content: space-evenly;

@@ -45,7 +45,7 @@ async function getQuestion(){
 
     newQuestion.style.display = 'none'
     submit.style.display = 'block'
-    }
+}
 
 subbtnEl.addEventListener('click', answer)
 
