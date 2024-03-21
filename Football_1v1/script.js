@@ -14,7 +14,18 @@ function showNav () {
 let newbtnEl = document.getElementById('newQuestion')
 let questionEl = document.getElementById('query')
 let feedbackEl = document.getElementById('feedback')
-let answerEl = document.getElementById('answer')
+//let answerEl = document.getElementById('answer')
+
+let answerOneInput = document.getElementById('answer-one');
+let answerTwoInput = document.getElementById('answer-two');
+let answerThreeInput = document.getElementById('answer-three');
+let answerFourInput = document.getElementById('answer-four');
+
+let labelAnswerOne = document.getElementById('label-answer-one');
+let labelAnswerTwo = document.getElementById('label-answer-two');
+let labelAnswerThree = document.getElementById('label-answer-three');
+let labelAnswerFour = document.getElementById('label-answer-four');
+
 let subbtnEl = document.getElementById('submit')
 let cashEl = document.querySelector('.cash')
 let data
@@ -45,9 +56,25 @@ async function getQuestion(){
 
     choices = [data[0].correctAnswer, ...data[0].incorrectAnswers]
 
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    
+    choices = shuffleArray(choices);
 
+    answerOneInput.value = choices[0];
+    answerTwoInput.value = choices[1];
+    answerThreeInput.value = choices[2];
+    answerFourInput.value = choices[3];
 
-    console.log(choices)
+    labelAnswerOne.innerHTML = answerOneInput.value;
+    labelAnswerTwo.innerHTML = answerTwoInput.value;
+    labelAnswerThree.innerHTML = answerThreeInput.value;
+    labelAnswerFour.innerHTML = answerFourInput.value;
 
     newQuestion.style.display = 'none'
     submit.style.display = 'block'
