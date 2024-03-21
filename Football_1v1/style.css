@@ -115,10 +115,14 @@ button {
   height: 140px;
 }
 
-canvas {
-  border: 2px solid black;
-  width: 100%;
-  height: 50%;
+#canvas1 {
+  border: 5px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 85%;
+  max-height: 70%;
 }
 
 /* Navbar */
