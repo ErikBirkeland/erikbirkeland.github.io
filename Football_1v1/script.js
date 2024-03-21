@@ -18,7 +18,7 @@ let questionEl = document.getElementById('query')
 let feedbackEl = document.getElementById('feedback')
 let answerEl = document.getElementById('answer')
 let subbtnEl = document.getElementById('submit')
-let cashEl = document.getElementById('cash')
+let cashEl = document.querySelector('.cash')
 let data
 
 newQuestion.style.display = 'block'
