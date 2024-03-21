@@ -178,13 +178,6 @@ header .topnav a {
 .fa-futbol {
   font-size: 30px;
 }
-
-/*.cash {
-  font-size: 40px;
-  position: absolute; 
-  height: 100%;
-  left: 55%; 
-}*/
   
 @media(max-width: 650px) {
   header {
@@ -227,7 +220,7 @@ header .topnav a {
     height: 3px;
     width: 0;
     left: 0;
-    bottom: -8px;
+    bottom: -7px;
     transition: 0.3s;
   }
   
