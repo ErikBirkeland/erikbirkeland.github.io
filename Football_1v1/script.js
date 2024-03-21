@@ -43,7 +43,9 @@ async function getQuestion(){
 
     questionEl.innerHTML = data[0].question
 
-    choices = [data[0].correctAnswer, data[0].incorrectAnswers]
+    choices = [data[0].correctAnswer, ...data[0].incorrectAnswers]
+
+
 
     console.log(choices)
 
