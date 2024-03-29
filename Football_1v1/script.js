@@ -14,7 +14,7 @@ function showNav () {
 let newbtnEl = document.getElementById('newQuestion')
 let questionEl = document.getElementById('query')
 let feedbackEl = document.getElementById('feedback')
-//let answerEl = document.getElementById('answer')
+let questionContainerEl = document.querySelector('.question-container')
 
 let answerOneInput = document.getElementById('answer-one');
 let answerTwoInput = document.getElementById('answer-two');
@@ -34,6 +34,8 @@ cashEl.innerHTML = Number(localStorage.teller)
 
 newQuestion.style.display = 'block'
 submit.style.display = 'none'
+
+questionContainerEl.style.display = 'none'
 
 newbtnEl.addEventListener('click', getQuestion)
 
@@ -76,6 +78,8 @@ async function getQuestion(){
     labelAnswerThree.innerHTML = answerThreeInput.value;
     labelAnswerFour.innerHTML = answerFourInput.value;
 
+    questionContainerEl.style.display = 'grid'
+
     newQuestion.style.display = 'none'
     submit.style.display = 'block'
 
@@ -94,7 +98,6 @@ if(!localStorage.teller){
 function answer (){
     const radioButtons = document.getElementsByName("q");
 
-    // Loop through all radio buttons to find the checked one
     let selectedAnswer;
     for (let i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {

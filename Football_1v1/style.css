@@ -81,6 +81,10 @@ main {
   justify-content: space-around;
 }
 
+#query {
+  font-size: 25px;
+}
+
 .question-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -89,10 +93,12 @@ main {
 
 .question-container label {
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .question-container input {
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 footer {
