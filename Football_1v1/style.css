@@ -10,8 +10,8 @@
   --light: #fff;
 }
 
-.boogaloo-regular {
-  font-family: "Boogaloo", sans-serif;
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -89,6 +89,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 20px;
+  grid-gap: 10px;
 }
 
 .question-container label {
@@ -106,7 +107,7 @@ footer {
   background-color: grey;
   width: 100%;
 
-padding: 20px;
+  padding: 20px;
   
   display: flex;
   justify-content: space-evenly;

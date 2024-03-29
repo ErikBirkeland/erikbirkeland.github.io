@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -30,105 +30,51 @@
 
 </head>
 <body>
-    <header>
-      <div class="topnav">
-        <a href="index.html"><i class="fa fa-futbol"></i></a>
-        <i class="fa-brands fa-bitcoin">
-          <span class="cash"></span>
-        </i>
-        <i class="fa-solid fa-bars"></i>
-      </div>
+  <header>
+    <div class="topnav">
+      <a href="index.html"><i class="fa fa-futbol"></i></a>
+      <i class="fa-brands fa-bitcoin">
+        <span class="cash"></span>
+      </i>
+      <i class="fa-solid fa-bars"></i>
+    </div>
           
-      <nav> 
-        <a href="1v1.html">1v1</a>
-        <a href="quiz.html" class="active">Quiz</a>
-      </nav>
-    </header>
+    <nav> 
+      <a href="1v1.html">1v1</a>
+      <a href="quiz.html" class="active">Quiz</a>
+    </nav>
+  </header>
 
-    <main>
-      <h1>Football Quiz</h1>
+  <main>
+    <h1>Football Quiz</h1>
 
-      <p id = "query">&nbsp;</p>
+    <p id = "query">&nbsp;</p>
 
-      <!-- <input id = "answer" type="text"> -->
-
-      <div class="question-container">
-        <input type="radio" name="q" id="answer-one">
-        <label for="answer-one" id="label-answer-one"></label>
+    <div class="question-container">
+      <input type="radio" name="q" id="answer-one">
+      <label for="answer-one" id="label-answer-one"></label>
         
-        <input type="radio" name="q" id="answer-two">
-        <label for="answer-two" id="label-answer-two"></label>
+      <input type="radio" name="q" id="answer-two">
+      <label for="answer-two" id="label-answer-two"></label>
       
-        <input type="radio" name="q" id="answer-three">
-        <label for="answer-three" id="label-answer-three"></label>
+      <input type="radio" name="q" id="answer-three">
+      <label for="answer-three" id="label-answer-three"></label>
       
-        <input type="radio" name="q" id="answer-four">
-        <label for="answer-four" id="label-answer-four"></label>
-      </div>
+      <input type="radio" name="q" id="answer-four">
+      <label for="answer-four" id="label-answer-four"></label>
+    </div>
       
-      <p id = "feedback">&nbsp;</p>
+    <p id = "feedback">&nbsp;</p>
 
-      <button id= "newQuestion">Get question</button>
+    <button id= "newQuestion">Get question</button>
 
-      <button id="submit">Submit answer</button>
-    </main>
+    <button id="submit">Submit answer</button>
+  </main>
 
-    <footer>
-      <p>&copy; 2024 <br><br> Made by Ola & Erik</p>
-    </footer>
+  <footer>
+    <p>&copy; 2024 <br><br> Made by Ola & Erik</p>
+  </footer>
 
     <script src="script.js"></script>
-
-    <script>
-      /*let newbtnEl = document.getElementById('newQuestion')
-      let questionEl = document.getElementById('query')
-      let feedbackEl = document.getElementById('feedback')
-      let answerEl = document.getElementById('answer')
-      let subbtnEl = document.getElementById('submit')
-      let data
-
-      newQuestion.style.display = 'block'
-      submit.style.display = 'none'
-
-      newbtnEl.addEventListener('click', getQuestion)
-
-      async function getQuestion(){
-        let url = 'https://the-trivia-api.com/api/questions?categories=sport_and_leisure&limit=1&difficulty=medium&tags=soccer'
-
-        let response = await fetch(url, {
-          headers: {
-          'Content-Type': 'application/json'
-          }
-        })
-
-        data = await response.json()
-
-        //console.log(response)
-
-        console.log(data)
-
-        questionEl.innerHTML = data[0].question
-
-        newQuestion.style.display = 'none'
-        submit.style.display = 'block'
-      }
-
-      subbtnEl.addEventListener('click', answer)
-
-      
-
-      function answer (){
-        if (answerEl.value == data[0].correctAnswer){
-          feedbackEl.innerHTML ="correct +10 coins"
-        }
-        else{
-          feedbackEl.innerHTML = "wrong"
-        }
-        newQuestion.style.display = 'block'
-        submit.style.display = 'none'
-      }*/
-
-
-    </script>
 </body>
 </html>
