@@ -157,7 +157,13 @@ button {
   display: none;
 }
 
+#goal1 {
+  display: none;
+}
 
+#goal2 {
+  display: none;
+}
 
 /* Navbar */
 header {
