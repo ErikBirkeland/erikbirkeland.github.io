@@ -135,6 +135,10 @@ button {
 }
 
 /* 1v1 */
+#resultat {
+  font-size: 40px;
+}
+
 #canvas1 {
   border: 5px solid black;
   position: absolute;
