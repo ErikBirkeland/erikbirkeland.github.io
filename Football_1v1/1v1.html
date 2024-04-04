@@ -34,6 +34,8 @@
     <img id="player1" src="bilder/pelle.png">
     <img id="player2" src="bilder/pelle.png">
     <img id="ball" src="bilder/fotball.png">
+    <img id="goal1" src="bilder/goal1.png">
+    <img id="goal2" src="bilder/goal2.png">
 
     <!--<button id="skins">Buy Skins</button>-->
 
@@ -266,6 +268,42 @@
             return this.y >= this.game.height - this.height; 
         }
     }
+
+  class Goal1 {
+    constructor(game, ball) {
+      this.game = game;
+      this.ball = ball;
+      this.height = 200; 
+      this.width = 75;
+      this.x = 0;
+      this.y = this.game.height - this.height;
+      this.image = document.getElementById('goal1');
+    }
+
+    draw(context) {
+      context.drawImage(this.image, this.x, this.y, this.width, this.height); 
+      context.fillStyle = 'red';
+      context.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
+
+  class Goal2 {
+    constructor(game, ball) {
+      this.game = game;
+      this.ball = ball;
+      this.height = 200; 
+      this.width = 75;
+      this.x = 250;
+      this.y = this.game.height - this.height;
+      this.image = document.getElementById('goal2');
+    }
+
+    draw(context) {
+      context.drawImage(this.image, this.x, this.y, this.width, this.height); 
+      context.fillStyle = 'blue';
+      context.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
   </script>
 </body>
 </html>
