@@ -114,7 +114,7 @@ button {
 
 /*Quiz*/
 #query {
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .question-container {
@@ -126,7 +126,7 @@ button {
 
 .question-container label {
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .question-container input {
