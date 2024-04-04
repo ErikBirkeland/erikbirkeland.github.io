@@ -33,11 +33,11 @@
 
     <img id="player1" src="bilder/pelle.png">
     <img id="player2" src="bilder/pelle.png">
-    <img id="football" src="bilder/fotball.png">
+    <img id="ball" src="bilder/fotball.png">
 
     <!--<button id="skins">Buy Skins</button>-->
 
-  <script src="script.js"></script>
+  <!--<script src="script.js"></script>-->
 
   <script>
     window.addEventListener('load', function(){
@@ -218,9 +218,9 @@
             this.width = 40
             this.weight = 1
             this.x = 250
-            this.y = 250
+            this.y = game.height - this.height*2
             this.vx = 0
-            this.vy = 10
+            this.vy = -8
             this.maxVy = 20
             this.gravity = 5
             this.xFriction = 1
@@ -257,7 +257,7 @@
         }
 
         draw(context){
-            context.fillStyle = 'black'
+            context.fillStyle = "rgba(255, 255, 255, 0.2)"
             context.fillRect(this.x, this.y, this.width, this.height)
             context.drawImage(this.image, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height)
         }
