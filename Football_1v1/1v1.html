@@ -47,7 +47,7 @@
         window.addEventListener('load', function () {
             const canvas = document.getElementById('canvas1');
             const ctx = canvas.getContext('2d');
-            canvas.width = 500;
+            canvas.width = 900;
             canvas.height = 500;
 
             class Game {
@@ -192,7 +192,7 @@
                 this.game = game;
                 this.width = 57;
                 this.height = 100;
-                this.x = 343;
+                this.x = 743;
                 this.y = this.game.height - this.height;
                 this.vy = 0;
                 this.weight = 1
@@ -244,7 +244,7 @@
                 this.height = 40
                 this.width = 40
                 this.weight = 1
-                this.x = 240
+                this.x = (game.width/2) - 20
                 this.y = game.height - this.height * 2
                 this.vx = 0
                 this.vy = -8
@@ -348,7 +348,7 @@
                 this.ball = ball;
                 this.height = 200;
                 this.width = 75;
-                this.x = 425;
+                this.x = 825;
                 this.y = this.game.height - this.height;
                 this.image = document.getElementById("goal2");
             }
