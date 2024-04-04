@@ -249,7 +249,7 @@
                 this.vx = 0
                 this.vy = -8
                 this.maxVy = 20
-                this.gravity = 5
+                this.gravity = 0.6
                 this.xFriction = 1
                 this.maxVx = 20
                 this.bounce = 1
@@ -260,12 +260,37 @@
             update() {
                 this.x += this.vx
                 this.y += this.vy
+                this.vy += this.gravity
 
                 if (this.x < 0) {
                     this.x = 0
                 }
                 if (this.x > this.game.width - this.width) {
                     this.x = this.game.width - this.width
+                }
+
+                // hvis ballen treffer vegg skal retning endres 
+                if (this.x + this.radius > this.game.width || this.x - this.radius < 0) {
+                    this.vx *= -1
+                }
+
+                if (this.y + this.radius > this.game.height) {
+                    this.y = game.height - this.radius;
+                    this.vy *= -this.bounce;
+
+                    if (this.vy < 0 && this.vy > -8) {
+                        this.vy = 0;
+                    }
+
+                    if (Math.abs(this.vx) < 1.1)
+                        this.vx = 0;
+
+                    if (this.vx > 0) {
+                        this.vx = this.vx - this.xFriction
+                    }
+                    if (this.vx < 0) {
+                        this.vx = this.vx + this.xFriction
+                    }
                 }
 
                 if (this.x < (player1.x + player1.width) &&
