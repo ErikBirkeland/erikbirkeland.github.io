@@ -1,23 +1,24 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --primary: #ddd;
-  --dark: #333;
-  --light: #fff;
-}
-
 .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+:root {
+  --background: white;
+  --light-blue: #ADD8E6 ;
+  --blue: #1E90FF;
+}
+
 body {
-  background-color: white;
+  background-color: var(--background);
   min-height: 100vh;
   margin: 0;
 
@@ -30,7 +31,7 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -41,12 +42,12 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 30px;
   margin-top: 30px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 main {
@@ -55,8 +56,38 @@ main {
   margin-right: auto;
 }
 
+footer {
+  font-size: 20px;
+  background-color: var(--light-blue);
+  width: 100%;
+
+  padding: 20px;
+  
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: auto;
+}
+
+button {
+  margin: 10px;
+  padding: 30px 70px;
+  background-color: var(--light-blue);
+  color: black;
+  border: 2px var(--blue);
+  border-radius: 0.5rem;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.spilltaster {
+  width: 140px;
+  height: 140px;
+}
+
+/*Index*/
 .beskrivelse {
-  font-size: 25px;
+  font-size: 30px;
   margin-bottom: 30px;
   margin-left: 40px;
   margin-right: 40px;
@@ -81,6 +112,7 @@ main {
   justify-content: space-around;
 }
 
+/*Quiz*/
 #query {
   font-size: 25px;
 }
@@ -102,51 +134,13 @@ main {
   cursor: pointer;
 }
 
-footer {
-  font-size: 20px;
-  background-color: grey;
-  width: 100%;
-
-  padding: 20px;
-  
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: auto;
-}
-
-button {
-  margin: 10px;
-  padding: 30px 70px;
-  background-color: grey;
-  color: white;
-  border-radius: 0.5rem;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.spilltaster {
-  width: 140px;
-  height: 140px;
-}
-
-#canvas1 {
-  border: 5px solid black;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 85%;
-  max-height: 70%;
-}
-
 /* Navbar */
 header {
   margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: grey;
+  background-color: var(--light-blue);
   padding: 10px;
   }
   
@@ -156,6 +150,7 @@ header nav {
   
 header a {
   color: black;
+  font-size: 50px;
   text-decoration: none;
   font-size: 30px;
   padding: 15px;
@@ -173,7 +168,7 @@ header .topnav {
 header a:after {
   content:"";
   position: absolute;
-  background-color: black;
+  background-color: var(--blue);
   height: 3px;
   width: 0;
   left: 0;
@@ -182,7 +177,7 @@ header a:after {
 }
   
 header a:hover {
-  color: #ffffff;
+  color: white;
 }
   
 header a:hover:after {
@@ -190,13 +185,14 @@ header a:hover:after {
 }
   
 header a.active {
-  color: black;
-  border: 2px solid black;
-  background-color: darkgrey;   
+  color: white;
+  border: 3px solid var(--blue);
+  border-radius: 0.5rem;
+  background-color: var(--blue);   
 }
   
 .fa-bars {
-  color: grey;
+  color: black;
   font-size: 30px;
   padding: 5px 20px;
   display: none;
@@ -208,14 +204,14 @@ header .topnav a {
 }
 
 .fa-bitcoin {
-  color: gold;
-  font-size: 30px;
+  color: #B59410;
+  font-size: 40px;
   position: absolute;
-  left: 47%; 
+  left: 45%; 
 }
 
 .fa-futbol {
-  font-size: 30px;
+  font-size: 35px;
 }
   
 @media(max-width: 650px) {
@@ -255,7 +251,7 @@ header .topnav a {
   .fa-bars:after {
     content:"";
     position: absolute;
-    background-color: lightgray;
+    background-color: var(--blue);
     height: 3px;
     width: 0;
     left: 0;
@@ -269,8 +265,8 @@ header .topnav a {
   
   .fa-bars.active {
     color: #ffffff;
-    border: 2px solid rgb(0, 80, 0) ;
-    background-color: rgba(1, 255, 13, 0.1);   
+    border: 2px solid var(--light-blue) ;
+    background-color: var(--light-blue);   
   }
   
   .boxes {
