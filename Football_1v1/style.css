@@ -134,6 +134,31 @@ button {
   cursor: pointer;
 }
 
+/* 1v1 */
+#canvas1 {
+  border: 5px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#player1 {
+  display: none;
+}
+
+#player2 {
+  display: none;
+}
+
+#football {
+  display: none;
+}
+
+
+
 /* Navbar */
 header {
   margin: 0;

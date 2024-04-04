@@ -31,8 +31,241 @@
 
     <canvas id="canvas1"></canvas>
 
-    <button id="skins">Buy Skins</button>
+    <img id="player1" src="bilder/pelle.png">
+    <img id="player2" src="bilder/pelle.png">
+    <img id="football" src="bilder/fotball.png">
+
+    <!--<button id="skins">Buy Skins</button>-->
 
   <script src="script.js"></script>
+
+  <script>
+    window.addEventListener('load', function(){
+        const canvas = document.getElementById('canvas1');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 500;
+        canvas.height = 500;
+
+        class Game{
+            constructor(width, height){
+                this.width = width;
+                this.height = height;
+                this.player1 = new Player1(this);
+                this.input = new InputHandler();
+                this.player2 = new Player2(this);
+                this.ball = new Ball(this);
+            }   
+
+            update(){
+                this.player1.update(this.input.keys);
+                this.player2.update(this.input.keys);
+                this.ball.update();
+            }
+
+            draw(context){
+                this.player1.draw(context);
+                this.player2.draw2(context);
+                this.ball.draw(context);
+            }
+        }
+
+        const game = new Game(canvas.width, canvas.height);
+        console.log(game);
+
+        function animate(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            game.update();
+            game.draw(ctx);
+            requestAnimationFrame(animate);
+        }
+        animate();
+    })
+
+    class InputHandler{
+        constructor(){
+            this.keys = [];
+            window.addEventListener('keydown', e => {
+                console.log(e.key, this.keys);
+                if((    e.key === 'ArrowDown' || 
+                        e.key === 'ArrowUp' ||
+                        e.key === 'ArrowLeft' ||
+                        e.key === 'ArrowRight' ||
+                        e.key === 'w' ||
+                        e.key === 'a' ||
+                        e.key === 'd' ||
+                        e.key === 's' ||
+                        e.key === 'b' ||
+                        e.key === 'Space'
+                    ) && this.keys.indexOf(e.key) === -1){
+                    this.keys.push(e.key);
+                }
+            });
+            window.addEventListener('keyup', e =>{
+                if(     e.key === 'ArrowDown' ||
+                        e.key ==='ArrowUp' ||
+                        e.key === 'ArrowLeft' ||
+                        e.key === 'ArrowRight' ||
+                        e.key === 'w' ||
+                        e.key === 'a' ||
+                        e.key === 'd' ||
+                        e.key === 's' ||
+                        e.key === 'b' ||
+                        e.key === 'Space'){
+                    this.keys.splice(this.keys.indexOf(e.key), 1);
+                }
+            });
+        }
+    }
+
+    class Player1{
+        constructor(game){
+            this.game = game;
+            this.width = 57;
+            this.height = 100;
+            this.x1 = 250;
+            this.y1 = this.game.height - this.height;
+            this.vy1 = 0;
+            this.weight1 = 1
+            this.image1 = document.getElementById("player1")
+            this.speed1 = 0;
+            this.maxSpeed1 = 10;
+        } 
+
+        update(input){
+            // horizontal movement
+            this.x1 += this.speed1;
+            if(input.includes('ArrowRight')) this.speed1 = this.maxSpeed1;
+            else if(input.includes('ArrowLeft')) this.speed1 = -this.maxSpeed1;
+            else this.speed1 = 0;
+            if(this.x1 < 0) this.x1 =0;
+            if (this.x1 > this.game.width - this.width) this.x1 = this.game.width - this.width;
+        
+            //vertical movement
+            if(input.includes('ArrowUp') && this.onGround()) this.vy1 = -20;
+            this.y1 += this.vy1;
+            if(!this.onGround()) this.vy1 += this.weight1;
+            else this.vy1 = 0;
+
+            if(input.includes('Space')){
+                if(this.ball.x < this.x1 + this.width && 
+                this.ball.x + this.width > this.x1 && 
+                this.ball.y < this.y1 + this.height && 
+                this.ball.y + this.height > this.y1){
+                    this.vx = this.maxVx
+                    this.vy = this.maxVy
+                }
+            }
+        }
+
+        draw(context){
+            context.fillStyle = 'red'
+            context.fillRect(this.x1, this.y1, this.width, this.height)
+            context.drawImage(this.image1, 0, 0, this.width, this.height, this.x1, this.y1, this.width, this.height)
+        }
+
+        onGround(){
+            return this.y1 >= this.game.height - this.height; 
+        }
+    }
+
+    class Player2{
+        constructor(game){
+            this.game = game;
+            this.width = 100;
+            this.height = 91.3;
+            this.x2 = 0;
+            this.y2 = this.game.height - this.height;
+            this.vy2 = 0;
+            this.weight2 = 1
+            this.image2 = document.getElementById("player2")
+            this.speed2 = 0;
+            this.maxSpeed2 = 10;
+        }
+
+        update(input){
+            // horizontal movement
+            this.x2 += this.speed2;
+            if(input.includes('d')) this.speed2 = this.maxSpeed2;
+            else if(input.includes('a')) this.speed2 = -this.maxSpeed2;
+            else this.speed2 = 0;
+            if(this.x2 < 0) this.x2 =0;
+            if (this.x2 > this.game.width - this.width) this.x2 = this.game.width - this.width;
+        
+            //vertical movement
+            if(input.includes('w') && this.onGround2()) this.vy2 = -20;
+            this.y2 += this.vy2;
+            if(!this.onGround2()) this.vy2 += this.weight2;
+            else this.vy2 = 0;
+        }
+
+        draw2(context){
+            context.fillStyle = 'blue'
+            context.fillRect(this.x2, this.y2, this.width, this.height)
+            context.drawImage(this.image2, 0, 0, this.width, this.height, this.x2, this.y2, this.width, this.height)
+        }
+
+        onGround2(){
+            return this.y2 >= this.game.height - this.height; 
+        }
+    }
+
+    class Ball{
+        constructor(game, player1, player2){
+            this.player1 = player1
+            this.player2 = player2
+            this.game = game
+            this.height = 40
+            this.width = 40
+            this.weight = 1
+            this.x = 250
+            this.y = 250
+            this.vx = 0
+            this.vy = 10
+            this.maxVy = 20
+            this.gravity = 5
+            this.xFriction = 1
+            this.maxVx = 20
+            this.bounce = 0.7
+            this.image = document.getElementById("ball")
+        }
+
+        update(){
+            this.x += this.vx
+            this.y += this.vy
+
+            if(this.x < 0){
+                this.x = 0
+            } 
+            if (this.x > this.game.width - this.width){
+                this.x = this.game.width - this.width
+            }
+            /*if(this.x < this.player1.x1 + this.player1.width && 
+                this.x + this.player1.width > this.player1.x1 && 
+                this.y < this.player1.y1 + this.player1.height && 
+                this.y + this.player1.height > this.player1.y1){
+                    //collision detected 
+                    this.vx = 10
+            }
+
+            else{
+                // no collision
+                this.vx = this.vx
+            }*/
+
+            if(!this.onGround()) this.vy += this.weight;
+            else this.vy = 0;
+        }
+
+        draw(context){
+            context.fillStyle = 'black'
+            context.fillRect(this.x, this.y, this.width, this.height)
+            context.drawImage(this.image, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height)
+        }
+
+        onGround(){
+            return this.y >= this.game.height - this.height; 
+        }
+    }
+  </script>
 </body>
 </html>
