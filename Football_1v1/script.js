@@ -84,7 +84,6 @@ async function getQuestion(){
     submit.style.display = 'block'
 
     feedbackEl.innerHTML = '';
-
 }
 
 subbtnEl.addEventListener('click', answer)
