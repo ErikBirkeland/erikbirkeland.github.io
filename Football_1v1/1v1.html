@@ -66,6 +66,7 @@
                     this.player1.update(this.input.keys);
                     this.player2.update(this.input.keys);
                     this.ball.update();
+                    collision(player1, player2)
                 }
 
                 draw(context) {
@@ -157,7 +158,7 @@
                 if (!this.onGround()) this.vy += this.weight;
                 else this.vy = 0;
 
-                if (input.includes('Space')) {
+                /*if (input.includes('Space')) {
                     if (this.ball.x < this.x + this.width &&
                         this.ball.x + this.width > this.x &&
                         this.ball.y < this.y + this.height &&
@@ -173,7 +174,7 @@
                     player1.y + player1.height > player2.y) {
                     player1.vx = 0
                     player2.vx = 0
-                }
+                }*/
             }
 
             draw(context) {
@@ -216,13 +217,12 @@
                 if (!this.onGround()) this.vy += this.weight;
                 else this.vy = 0;
 
-                if (player1.x < player2.x + player2.width &&
-                    player1.x + player1.width > player2.x &&
-                    player1.y < player2.y + player2.height &&
-                    player1.y + player1.height > player2.y) {
-                    player1.vx = 0
-                    player2.vx = 0
-                }
+                /*if (player1.x < this.x + this.width &&
+                    player1.x + player1.width > this.x &&
+                    player1.y < this.y + this.height &&
+                    player1.y + player1.height > this.y) {
+                    this.vx = 0
+                }*/
             }
 
             draw(context) {
@@ -314,7 +314,7 @@
             }
 
             draw(context) {
-                context.fillStyle = "rgba(255, 255, 255, 0.2)"
+                context.fillStyle = "rgba(255, 255, 255, 0.01)"
                 context.fillRect(this.x, this.y, this.width, this.height)
                 context.drawImage(this.image, this.x, this.y, this.width, this.height)
             }
@@ -358,6 +358,16 @@
                 context.fillRect(this.x, this.y, this.width, this.height)
                 context.drawImage(this.image, this.x, this.y, this.width, this.height)
             }
+        }
+
+        function collision(player1, player2){
+            if (player1.x < player2.x + player2.width &&
+                    player1.x + player1.width > player2.x &&
+                    player1.y < player2.y + player2.height &&
+                    player1.y + player1.height > player2.y) {
+                    player1.vx = 0
+                    player2.vx = 0
+                }
         }
     </script>
 </body>
