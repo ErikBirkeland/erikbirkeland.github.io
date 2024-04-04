@@ -41,7 +41,7 @@
 
     <!--<button id="skins">Buy Skins</button>-->
 
-    <!--<script src="script.js"></script>-->
+    <script src="script.js"></script>
 
     <script>
         window.addEventListener('load', function () {
@@ -235,30 +235,6 @@
                 return this.y >= this.game.height - this.height;
             }
         }
-
-        /*let ball = {
-            x: 250,
-            y: 0,
-            height:40,
-            width:40,
-            vx:0,
-            vy:0,
-            maxVx:5,
-            maxVy:5,
-            bounce:1,
-            imagesrc: 'bilder/fotball.png',
-
-            update(){
-                x += vx
-                y += vy
-            },
-
-            onGround() {
-                return y >= game.height - height;
-            },
-        },
-
-        ball.update()*/
 
         class Ball {
             constructor(game, player1, player2) {

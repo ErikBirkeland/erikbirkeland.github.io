@@ -120,11 +120,3 @@ function answer (){
     newQuestion.style.display = 'block'
     submit.style.display = 'none'
 }
-
-
-
-
-
-
-
-    
