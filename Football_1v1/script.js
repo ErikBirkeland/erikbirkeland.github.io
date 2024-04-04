@@ -80,7 +80,7 @@ async function getQuestion(){
 
     questionContainerEl.style.display = 'grid'
 
-    //newQuestion.style.display = 'none'
+    newQuestion.style.display = 'none'
     submit.style.display = 'block'
 
     feedbackEl.innerHTML = '';
