@@ -58,6 +58,8 @@
                     this.input = new InputHandler();
                     this.player2 = new Player2(this);
                     this.ball = new Ball(this);
+                    this.goal1 = new Goal1(this);
+                    this.goal2 = new Goal2(this);
                 }
 
                 update() {
@@ -70,6 +72,8 @@
                     this.player1.draw(context);
                     this.player2.draw(context);
                     this.ball.draw(context);
+                    this.goal1.draw(context);
+                    this.goal2.draw(context);
                 }
             }
 
@@ -129,7 +133,7 @@
                 this.game = game;
                 this.width = 57;
                 this.height = 100;
-                this.x = 0;
+                this.x = 100;
                 this.y = this.game.height - this.height;
                 this.vy = 0;
                 this.weight = 1
@@ -162,6 +166,14 @@
                         this.vy = this.maxVy
                     }
                 }
+
+                if (player1.x < player2.x + player2.width &&
+                    player1.x + player1.width > player2.x &&
+                    player1.y < player2.y + player2.height &&
+                    player1.y + player1.height > player2.y) {
+                    player1.vx = 0
+                    player2.vx = 0
+                }
             }
 
             draw(context) {
@@ -178,9 +190,9 @@
         class Player2 {
             constructor(game) {
                 this.game = game;
-                this.width = 100;
-                this.height = 91.3;
-                this.x = 0;
+                this.width = 57;
+                this.height = 100;
+                this.x = 400;
                 this.y = this.game.height - this.height;
                 this.vy = 0;
                 this.weight = 1
@@ -203,6 +215,14 @@
                 this.y += this.vy;
                 if (!this.onGround()) this.vy += this.weight;
                 else this.vy = 0;
+
+                if (player1.x < player2.x + player2.width &&
+                    player1.x + player1.width > player2.x &&
+                    player1.y < player2.y + player2.height &&
+                    player1.y + player1.height > player2.y) {
+                    player1.vx = 0
+                    player2.vx = 0
+                }
             }
 
             draw(context) {
@@ -265,8 +285,6 @@
                 this.x += this.vx
                 this.y += this.vy
 
-                console.log(player1.width)
-
                 if (this.x < 0) {
                     this.x = 0
                 }
@@ -279,8 +297,6 @@
                     this.y < player1.y + player1.height &&
                     this.y + this.height > player1.y) {
                     this.vx = this.maxVx
-
-                    console.log("yo 123")
                 }
 
                 // Sjekk kollisjon med player2
@@ -307,15 +323,6 @@
             }
         }
 
-        if (player1.x < player2.x + player2.width &&
-            player1.x + player1.width > player2.x &&
-            player1.y < player2.y + player2.height &&
-            player1.y + player1.height > player2.y) {
-            player1.vx = 0
-            player2.vx = 0
-        }
-
-
         class Goal1 {
             constructor(game, ball) {
                 this.game = game;
@@ -328,9 +335,9 @@
             }
 
             draw(context) {
-                context.drawImage(this.image, this.x, this.y, this.width, this.height);
-                context.fillStyle = 'red';
-                context.fillRect(this.x, this.y, this.width, this.height);
+                context.fillStyle = "rgb(255,255,255, 0.1)";
+                context.fillRect(this.x, this.y, this.width, this.height)
+                context.drawImage(this.image, this.x, this.y, this.width, this.height)
             }
         }
 
@@ -340,19 +347,17 @@
                 this.ball = ball;
                 this.height = 200;
                 this.width = 75;
-                this.x = 250;
+                this.x = 425;
                 this.y = this.game.height - this.height;
-                this.image = document.getElementById('goal2');
+                this.image = document.getElementById("goal2");
             }
 
             draw(context) {
-                context.drawImage(this.image, this.x, this.y, this.width, this.height);
-                context.fillStyle = 'blue';
-                context.fillRect(this.x, this.y, this.width, this.height);
+                context.fillStyle = "rgb(255,255,255, 0.1)";
+                context.fillRect(this.x, this.y, this.width, this.height)
+                context.drawImage(this.image, this.x, this.y, this.width, this.height)
             }
         }
-
-
     </script>
 </body>
 
