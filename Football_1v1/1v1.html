@@ -305,13 +305,50 @@
             }
         }
 
-        if(player1.x < player2.x + player2.width &&
-           player1.x + player1.width > player2.x &&
-           player1.y < player2.y + player2.height &&
-           player1.y + player1.height > player2.y){
+        if (player1.x < player2.x + player2.width &&
+            player1.x + player1.width > player2.x &&
+            player1.y < player2.y + player2.height &&
+            player1.y + player1.height > player2.y) {
             player1.vx = 0
             player2.vx = 0
-           }
+        }
+
+
+        class Goal1 {
+            constructor(game, ball) {
+                this.game = game;
+                this.ball = ball;
+                this.height = 200;
+                this.width = 75;
+                this.x = 0;
+                this.y = this.game.height - this.height;
+                this.image = document.getElementById('goal1');
+            }
+
+            draw(context) {
+                context.drawImage(this.image, this.x, this.y, this.width, this.height);
+                context.fillStyle = 'red';
+                context.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
+
+        class Goal2 {
+            constructor(game, ball) {
+                this.game = game;
+                this.ball = ball;
+                this.height = 200;
+                this.width = 75;
+                this.x = 250;
+                this.y = this.game.height - this.height;
+                this.image = document.getElementById('goal2');
+            }
+
+            draw(context) {
+                context.drawImage(this.image, this.x, this.y, this.width, this.height);
+                context.fillStyle = 'blue';
+                context.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
 
 
     </script>
