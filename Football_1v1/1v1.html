@@ -297,7 +297,7 @@
                     }
                 }
 
-                if (this.x < (player1.x + player1.width) &&
+                /*if (this.x < (player1.x + player1.width) &&
                     this.x + this.width > player1.x &&
                     this.y < player1.y + player1.height &&
                     this.y + this.height > player1.y) {
@@ -311,7 +311,7 @@
                     this.y + this.height > player2.y) {
                     // Behandle kollisjon med player2
                     this.vx = -5
-                }
+                }*/
 
                 if (!this.onGround()) this.vy += this.weight;
                 else this.vy = 0;
@@ -364,14 +364,14 @@
             }
         }
 
-        function collision(player1, player2){
+        function collision(player1, player2) {
             if (player1.x < player2.x + player2.width &&
-                    player1.x + player1.width > player2.x &&
-                    player1.y < player2.y + player2.height &&
-                    player1.y + player1.height > player2.y) {
-                    player1.vx = 0
-                    player2.vx = 0
-                }
+                player1.x + player1.width > player2.x &&
+                player1.y < player2.y + player2.height &&
+                player1.y + player1.height > player2.y) {
+                player1.vx = 0
+                player2.vx = 0
+            }
         }
     </script>
 </body>
