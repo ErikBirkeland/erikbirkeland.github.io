@@ -15,6 +15,7 @@
   --background: white;
   --light-blue: #ADD8E6 ;
   --blue: #1E90FF;
+  --grass: #388004;
 }
 
 body {
@@ -147,6 +148,13 @@ button {
   transform: translate(-50%, -50%);
   max-width: 100%;
   max-height: 100%;
+
+  background-image: linear-gradient(
+    var(--light-blue) 0%,
+    var(--light-blue) 75%,
+    var(--grass) 75%, 
+    var(--grass) 100%
+  );
 }
 
 #player1 {
