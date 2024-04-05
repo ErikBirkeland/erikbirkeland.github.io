@@ -70,7 +70,7 @@
                     this.player1.update(this.input.keys);
                     this.player2.update(this.input.keys);
                     this.ball.update();
-                    collision(player1, player2)
+                    //collision(player1, player2)
                 }
 
                 draw(context) {
@@ -364,7 +364,7 @@
             }
         }
 
-        function collision(player1, player2) {
+        /*function collision(player1, player2) {
             if (player1.x < player2.x + player2.width &&
                 player1.x + player1.width > player2.x &&
                 player1.y < player2.y + player2.height &&
@@ -372,7 +372,7 @@
                 player1.vx = 0
                 player2.vx = 0
             }
-        }
+        }*/
     </script>
 </body>
 

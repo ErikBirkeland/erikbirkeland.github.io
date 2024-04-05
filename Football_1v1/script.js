@@ -32,8 +32,8 @@ let data
 
 cashEl.innerHTML = Number(localStorage.teller)
 
-newQuestion.style.display = 'block'
-submit.style.display = 'none'
+newbtnEl.style.display = 'block'
+subbtnEl.style.display = 'none'
 
 questionContainerEl.style.display = 'none'
 
@@ -80,8 +80,8 @@ async function getQuestion(){
 
     questionContainerEl.style.display = 'grid'
 
-    newQuestion.style.display = 'none'
-    submit.style.display = 'block'
+    newbtnEl.style.display = 'none'
+    subbtnEl.style.display = 'block'
 
     feedbackEl.innerHTML = '';
 }
@@ -116,6 +116,6 @@ function answer (){
         radioButtons[i].checked = false;
     }
 
-    newQuestion.style.display = 'block'
-    submit.style.display = 'none'
+    newbtnEl.style.display = 'block'
+    subbtnEl.style.display = 'none'
 }
