@@ -45,7 +45,7 @@
 
     <!--<button id="skins">Buy Skins</button>-->
 
-    <script src="script.js"></script>
+    <!--<script src="script.js"></script>-->
 
     <script>
         window.addEventListener('load', function () {
@@ -58,32 +58,38 @@
                 constructor(width, height) {
                     this.width = width;
                     this.height = height;
-                    this.player1 = new Player1(this);
-                    this.input = new InputHandler();
-                    this.player2 = new Player2(this);
-                    this.ball = new Ball(this);
-                    this.goal1 = new Goal1(this);
-                    this.goal2 = new Goal2(this);
+                    //this.player1 = new Player1(this);
+                    //this.input = new InputHandler();
+                    //this.player2 = new Player2(this);
+                    //this.ball = new Ball(this);
+                    //this.goal1 = new Goal1(this);
+                    //this.goal2 = new Goal2(this);
                 }
 
                 update() {
-                    this.player1.update(this.input.keys);
-                    this.player2.update(this.input.keys);
-                    this.ball.update();
+                    //this.player1.update(this.input.keys);
+                    //this.player2.update(this.input.keys);
+                    //this.ball.update();
+                    player1.update()
+                    player2.update()
+                    ball.update()
                     //collision(player1, player2)
                 }
 
                 draw(context) {
-                    this.player1.draw(context);
-                    this.player2.draw(context);
-                    this.ball.draw(context);
-                    this.goal1.draw(context);
-                    this.goal2.draw(context);
+                    //this.player1.draw(context);
+                    //this.player2.draw(context);
+                    //this.ball.draw(context);
+                    //this.goal1.draw(context);
+                    //this.goal2.draw(context);
+                    player1.draw(context)
+                    player2.draw(context)
+                    ball.draw(context)
+                    goal1.draw(context)
+                    goal2.draw(context)
                 }
             }
-
-            const game = new Game(canvas.width, canvas.height);
-            console.log(game);
+            let game = new Game(canvas.width, canvas.height);
 
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -130,16 +136,15 @@
             }
         }
 
-
-
-
+        let input = new InputHandler()
+        
         class Player1 {
             constructor(game) {
-                this.game = game;
+                //this.game = game;
                 this.width = 57;
                 this.height = 100;
                 this.x = 1143;
-                this.y = this.game.height - this.height;
+                this.y = 0//game.height - this.height;
                 this.vy = 0;
                 this.weight = 1
                 this.image = document.getElementById("player1")
@@ -154,7 +159,7 @@
                 else if (input.includes('ArrowLeft')) this.speed = -this.maxSpeed;
                 else this.speed = 0;
                 if (this.x < 0) this.x = 0;
-                if (this.x > this.game.width - this.width) this.x = this.game.width - this.width;
+                if (this.x > game.width - this.width) this.x = game.width - this.width;
 
                 //vertical movement
                 if (input.includes('ArrowUp') && this.onGround()) this.vy = -20;
@@ -163,14 +168,14 @@
                 else this.vy = 0;
 
                 /*if (input.includes('Space')) {
-                    if (this.ball.x < this.x + this.width &&
-                        this.ball.x + this.width > this.x &&
-                        this.ball.y < this.y + this.height &&
-                        this.ball.y + this.height > this.y) {
+                    if (ball.x < this.x + this.width &&
+                        ball.x + this.width > this.x &&
+                        ball.y < this.y + this.height &&
+                        ball.y + this.height > this.y) {
                         this.vx = this.maxVx
                         this.vy = this.maxVy
                     }
-                }
+                }*/
 
                 if (player1.x < player2.x + player2.width &&
                     player1.x + player1.width > player2.x &&
@@ -178,7 +183,7 @@
                     player1.y + player1.height > player2.y) {
                     player1.vx = 0
                     player2.vx = 0
-                }*/
+                }
             }
 
             draw(context) {
@@ -188,17 +193,19 @@
             }
 
             onGround() {
-                return this.y >= this.game.height - this.height;
+                return this.y >= game.height - this.height;
             }
         }
 
+        let player1 = new Player1()
+
         class Player2 {
             constructor(game) {
-                this.game = game;
+                //this.game = game;
                 this.width = 57;
                 this.height = 100;
                 this.x = 100;
-                this.y = this.game.height - this.height;
+                this.y = 500//game.height - this.height;
                 this.vy = 0;
                 this.weight = 1
                 this.image = document.getElementById("player2")
@@ -213,7 +220,7 @@
                 else if (input.includes('a')) this.speed = -this.maxSpeed;
                 else this.speed = 0;
                 if (this.x < 0) this.x = 0;
-                if (this.x > this.game.width - this.width) this.x = this.game.width - this.width;
+                if (this.x > game.width - this.width) this.x = game.width - this.width;
 
                 //vertical movement
                 if (input.includes('w') && this.onGround()) this.vy = -20;
@@ -221,12 +228,14 @@
                 if (!this.onGround()) this.vy += this.weight;
                 else this.vy = 0;
 
-                /*if (player1.x < this.x + this.width &&
-                    player1.x + player1.width > this.x &&
-                    player1.y < this.y + this.height &&
-                    player1.y + player1.height > this.y) {
-                    this.vx = 0
-                }*/
+                if (player1.x < player2.x + player2.width &&
+                    player1.x + player1.width > player2.x &&
+                    player1.y < player2.y + player2.height &&
+                    player1.y + player1.height > player2.y) {
+                    console.log("kollisjon")
+                    //player1.vx = 0
+                    //player2.vx = 0
+                }
             }
 
             draw(context) {
@@ -236,20 +245,22 @@
             }
 
             onGround() {
-                return this.y >= this.game.height - this.height;
+                return this.y >= game.height - this.height;
             }
         }
 
+        let player2 = new Player2()
+
         class Ball {
-            constructor(game, player1, player2) {
-                this.player1 = player1
-                this.player2 = player2
-                this.game = game
+            constructor(game) {
+                //this.player1 = player1
+                //this.player2 = player2
+                //this.game = game
                 this.height = 40
                 this.width = 40
                 this.weight = 0.1
-                this.x = (game.width / 2) - 20
-                this.y = game.height - this.height * 2
+                this.x = 730//(game.width / 2) - 20
+                this.y = 40//game.height - this.height * 2
                 this.vx = 0
                 this.vy = -18
                 this.maxVy = 20
@@ -269,17 +280,17 @@
                 if (this.x < 0) {
                     this.x = 0
                 }
-                if (this.x > this.game.width - this.width) {
-                    this.x = this.game.width - this.width
+                if (this.x > game.width - this.width) {
+                    this.x = game.width - this.width
                 }
 
                 // hvis ballen treffer vegg skal retning endres 
-                if (this.x + this.radius > this.game.width || this.x - this.radius < 0) {
+                if (this.x + this.radius > game.width || this.x - this.radius < 0) {
                     this.vx *= -1
                 }
 
-                if (this.y + this.radius > this.game.height) {
-                    this.y = game.height - this.radius;
+                if (this.y + this.radius > game.height) {
+                    this.y = height - this.radius;
                     this.vy *= -this.bounce;
 
                     if (this.vy < 0 && this.vy > -8) {
@@ -297,7 +308,7 @@
                     }
                 }
 
-                /*if (this.x < (player1.x + player1.width) &&
+                if (this.x < (player1.x + player1.width) &&
                     this.x + this.width > player1.x &&
                     this.y < player1.y + player1.height &&
                     this.y + this.height > player1.y) {
@@ -311,7 +322,7 @@
                     this.y + this.height > player2.y) {
                     // Behandle kollisjon med player2
                     this.vx = -5
-                }*/
+                }
 
                 if (!this.onGround()) this.vy += this.weight;
                 else this.vy = 0;
@@ -327,6 +338,8 @@
                 return this.y >= this.game.height - this.height;
             }
         }
+
+        let ball = new Ball()
 
         class Goal1 {
             constructor(game, ball) {
@@ -346,6 +359,8 @@
             }
         }
 
+        let goal1 = new Goal1()
+
         class Goal2 {
             constructor(game, ball) {
                 this.game = game;
@@ -364,15 +379,39 @@
             }
         }
 
-        /*function collision(player1, player2) {
+        let goal2 = new Goal2()
+
+        /*function collision() {
             if (player1.x < player2.x + player2.width &&
-                player1.x + player1.width > player2.x &&
                 player1.y < player2.y + player2.height &&
+                player1.x + player1.width > player2.x &&
                 player1.y + player1.height > player2.y) {
-                player1.vx = 0
-                player2.vx = 0
+                let overlapX = Math.min(player1.x + player1.width, player2.x + player2.width) - Math.max(player1.x, player2.x);
+                let overlapY = Math.min(player1.y + player1.height, player2.y + player2.height) - Math.max(player1.y, player2.y);
+                if (overlapX < overlapY) {
+                    if (player1.x < player2.x) {
+                        player1.x -= overlapX / 2;
+                        player2.x += overlapX / 2;
+                    } else {
+                        player1.x += overlapX / 2;
+                        player2.x -= overlapX / 2;
+                    }
+                } else {
+                    if (player1.y < player2.y) {
+                        player1.y -= overlapY / 2;
+                        player2.y += overlapY / 2;
+                    } else {
+                        player1.y += overlapY / 2;
+                        player2.y -= overlapY / 2;
+                    }
+                }
+
+                // Sett hastigheten til begge spillere til 0
+                player1.vx = 0;
+                player2.vx = 0;
             }
         }*/
+
     </script>
 </body>
 
