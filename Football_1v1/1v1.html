@@ -258,10 +258,10 @@
                     this.x = (game.width / 2) - 20
                     this.y = game.height - this.height * 10
                     this.vx = 0
-                    this.vy = -5
+                    this.vy = -2
                     this.maxVy = -8
                     this.gravity = 0.2
-                    this.xFriction = 0.2
+                    this.xFriction = 0.5
                     this.maxVx = 20
                     this.bounce = 0.7
                     this.image = document.getElementById("ball")
@@ -304,7 +304,7 @@
                         this.vx *= -1
                     }
 
-                    if (this.vy < 0 && this.vy > -1) {
+                    if (this.vy < 0 && this.vy > -0.5) {
                         this.vy = 0;
                     }
 
