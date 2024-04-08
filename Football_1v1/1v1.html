@@ -86,8 +86,8 @@
                 requestAnimationFrame(animate);
             }
 
-            
-            
+
+
 
             class InputHandler {
                 constructor() {
@@ -155,13 +155,13 @@
                     if (!this.onGround()) this.vy += this.weight;
                     else this.vy = 0;
 
-                    /*if (input.includes('Space')) {
+                    /*if (input.keys.includes('Space')) {
                         if (ball.x < this.x + this.width &&
                             ball.x + this.width > this.x &&
                             ball.y < this.y + this.height &&
                             ball.y + this.height > this.y) {
-                            this.vx = this.maxVx
-                            this.vy = this.maxVy
+                            this.vx = this.maxVx*3
+                            this.vy = this.maxVy*3
                         }
                     }*/
 
@@ -184,7 +184,7 @@
                     return this.y >= game.height - this.height;
                 }
             }
-            
+
             let player1 = new Player1()
 
             class Player2 {
@@ -246,11 +246,11 @@
                     this.x = (game.width / 2) - 20
                     this.y = game.height - this.height * 10
                     this.vx = 0
-                    this.vy = -2
-                    this.maxVy = -7
-                    this.gravity = -0.6
-                    this.xFriction = 1
-                    this.maxVx = 8
+                    this.vy = -5
+                    this.maxVy = -8
+                    this.gravity = 0.2
+                    this.xFriction = 0.2
+                    this.maxVx = 20
                     this.bounce = 0.7
                     this.image = document.getElementById("ball")
                 }
@@ -261,16 +261,16 @@
                     this.y += this.vy
                     this.vy += this.gravity
 
-                    // hvis ballen treffer vegg skal retning endres 
+                    /*// hvis ballen treffer vegg skal retning endres 
                     if (this.x + this.width > game.width || this.x - this.width < 0) {
                         this.vx *= -1
                     }
 
                     if (this.y + this.height >= game.height) {
-                        this.y = game.height - this.height;
+                        //this.y = game.height - this.height;
                         this.vy *= -this.bounce;
 
-                        if (this.vy < 0 && this.vy > -8) {
+                        if (this.vy < 0 && this.vy > -3) {
                             this.vy = 0;
                         }
 
@@ -285,7 +285,7 @@
                         }
                     }
 
-                    if (this.x < (player1.x + player1.width) &&
+                    if (this.x < player1.x + player1.width &&
                         this.x + this.width > player1.x &&
                         this.y < player1.y + player1.height &&
                         this.y + this.height > player1.y) {
@@ -303,8 +303,35 @@
                     }
 
                     if (!this.onGround()) this.vy += this.weight;
+                    else this.vy = 0;*/
+
+                    if (ball.y + ball.radius > canvas.height) {
+                        ball.y = canvas.height - ball.radius;
+                        vy *= -bounce;
+
+                        if (vy < 0 && vy > -18) {
+                            vy = 0;
+                        }
+
+                        if (Math.abs(vx) < 1.1)
+                            vx = 0;
+
+                        xF();
+                    }
+
+                    function xF() {
+                        if (vx > 0) {
+                            vx = vx - xFriction
+                        }
+                        if (vx < 0) {
+                            vx = vx + xFriction
+                        }
+                    }
+
+                    if (!this.onGround()) this.vy += this.weight;
                     else this.vy = 0;
                 }
+
 
                 draw(context) {
                     context.fillStyle = "rgba(255, 255, 255, 0.01)"
@@ -315,7 +342,9 @@
                 onGround() {
                     return this.y >= game.height - this.height;
                 }
+
             }
+
 
             let ball = new Ball()
 
@@ -358,9 +387,9 @@
                     player1.y < player2.y + player2.height &&
                     player1.x + player1.width > player2.x &&
                     player1.y + player1.height > player2.y) {
-                        // Sett hastigheten til begge spillere til 0
-                        player1.vx = 0;
-                        player2.vx = 0;
+                    // Sett hastigheten til begge spillere til 0
+                    player1.vx = 0;
+                    player2.vx = 0;
                 }
             }
 
