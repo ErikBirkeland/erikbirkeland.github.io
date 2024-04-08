@@ -43,6 +43,7 @@
     <img id="goal1" src="bilder/goal1.png">
     <img id="goal2" src="bilder/goal2.png">
     <img id="cloud" src="bilder/cloud.png">
+    <img id="blue" src="bilder/blue.png">
 
     <!--<button id="skins">Buy Skins</button>-->
 
@@ -196,7 +197,7 @@
                     this.y = game.height - this.height;
                     this.vy = 0;
                     this.weight = 1
-                    this.image = document.getElementById("player2")
+                    this.image = document.getElementById("blue")
                     this.speed = 0;
                     this.maxSpeed = 10;
                 }
@@ -227,7 +228,7 @@
                 }
 
                 draw(context) {
-                    context.fillStyle = 'blue'
+                    context.fillStyle = "rgba(255,255,255, 0)"
                     context.fillRect(this.x, this.y, this.width, this.height)
                     context.drawImage(this.image, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height)
                 }
