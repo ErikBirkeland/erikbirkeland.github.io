@@ -287,20 +287,20 @@
                     }*/
 
                     if (!this.onGround()) this.vy += this.weight;
-                    else this.vy = 0;
+                    else this.vy = -this.maxVy;
 
                     // hvis ballen treffer vegg skal retning endres 
                     if (this.x + this.width > game.width || this.x - this.width < 0) {
                         this.vx *= -1
                     }
 
-                    if (this.y + this.height >= game.height) {
-                        //this.y = game.height - this.height;
-                        this.vy *= -this.bounce;
-
-                        if (this.vy < 0 && this.vy > -3) {
+                    if (this.vy < 0 && this.vy > -1) {
                             this.vy = 0;
                         }
+
+                    if (this.y + this.height >= game.height) {
+                        //this.y = game.height - this.height;
+                        this.vy *= -this.bounce
 
                         if (Math.abs(this.vx) < 1.1)
                             this.vx = 0;
@@ -318,6 +318,7 @@
                         this.y < player1.y + player1.height &&
                         this.y + this.height > player1.y) {
                         this.vx = this.maxVx
+                        this.vy = this.maxVy
                     }
 
                     // Sjekk kollisjon med player2
@@ -327,7 +328,7 @@
                         this.y + this.height > player2.y) {
                         // Behandle kollisjon med player2
                         this.vx = -this.maxVx
-                        //this.vy = this.maxVy
+                        this.vy = this.maxVy
                     }
 
                     // sparke knapp
