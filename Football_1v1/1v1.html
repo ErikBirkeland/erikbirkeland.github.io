@@ -217,6 +217,16 @@
                     if (!this.onGround()) this.vy += this.weight;
                     else this.vy = 0;
 
+                    if (input.keys.includes('Space')) {
+                        if (ball.x < player2.x + player2.width &&
+                            this.x + player2.width > player2.x &&
+                            this.y < player2.y + player2.height &&
+                            this.y + player2.height > player2.y) {
+                            this.vx = this.maxVx
+                            this.vy = this.maxVy
+                        }
+                    }
+
                     /*if (player1.x < this.x + this.width &&
                         player1.x + player1.width > this.x &&
                         player1.y < this.y + this.height &&
@@ -295,8 +305,8 @@
                     }
 
                     if (this.vy < 0 && this.vy > -1) {
-                            this.vy = 0;
-                        }
+                        this.vy = 0;
+                    }
 
                     if (this.y + this.height >= game.height) {
                         //this.y = game.height - this.height;
@@ -329,17 +339,6 @@
                         // Behandle kollisjon med player2
                         this.vx = -this.maxVx
                         this.vy = this.maxVy
-                    }
-
-                    // sparke knapp
-                    if (input.keys.includes('Space')) {
-                        if (this.x < player2.x + player2.width &&
-                            this.x + player2.width > player2.x &&
-                            this.y < player2.y + player2.height &&
-                            this.y + player2.height > player2.y) {
-                            this.vx = this.maxVx
-                            this.vy = this.maxVy
-                        }
                     }
                 }
                 draw(context) {
