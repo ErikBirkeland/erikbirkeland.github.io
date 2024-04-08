@@ -81,6 +81,11 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  color: white;
+  transition: 0.3s;
+}
+
 .spilltaster {
   width: 140px;
   height: 140px;
@@ -220,6 +225,7 @@ header a:after {
   
 header a:hover {
   color: white;
+  transition: 0.3s;
 }
   
 header a:hover:after {
