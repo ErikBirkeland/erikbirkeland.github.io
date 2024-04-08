@@ -74,6 +74,7 @@
                     ball.draw(context)
                     goal1.draw(context)
                     goal2.draw(context)
+                    cloud.draw(context)
                 }
             }
 
@@ -352,6 +353,21 @@
             }
 
             let goal2 = new Goal2()
+
+            class Cloud1 {
+                constructor() {
+                    this.height = 100;
+                    this.width = 200;
+                    this.x = 40;
+                    this.y = 300;
+                    this.image = document.getElementById("cloud");
+                }
+
+                draw(context) {
+                    context.fillRect(this.x, this.y, this.width, this.height)
+                    context.drawImage(this.image, this.x, this.y, this.width, this.height)
+                }
+            }
 
             function collision() {
                 if (player1.x < player2.x + player2.width &&
