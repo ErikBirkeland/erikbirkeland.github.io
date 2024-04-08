@@ -140,8 +140,8 @@ button:hover {
 }
 
 /* 1v1 */
-#resultat {
-  font-size: 40px;
+#stilling {
+  font-size: 45px;
 }
 
 #canvas1 {
@@ -152,6 +152,7 @@ button:hover {
   transform: translate(-50%, -50%);
   max-width: 100%;
   max-height: 100%;
+  margin-top: 10px;
 
   background-image: linear-gradient(
     var(--light-blue) 0%,
