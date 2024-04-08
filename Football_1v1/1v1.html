@@ -74,7 +74,7 @@
                     ball.draw(context)
                     goal1.draw(context)
                     goal2.draw(context)
-                    cloud.draw(context)
+                    cloud1.draw(context)
                 }
             }
 
@@ -161,8 +161,8 @@
                             ball.x + this.width > this.x &&
                             ball.y < this.y + this.height &&
                             ball.y + this.height > this.y) {
-                            this.vx = this.maxVx*3
-                            this.vy = this.maxVy*3
+                            ball.vx = this.maxVx*3
+                            ball.vy = this.maxVy*3
                         }
                     }*/
 
@@ -262,7 +262,33 @@
                     this.y += this.vy
                     this.vy += this.gravity
 
-                    /*// hvis ballen treffer vegg skal retning endres 
+                    /*if (this.y + this.height > game.height) {
+                        this.y = game.height - this.height;
+                        this.vy *= -this.bounce;
+
+                        if (this.vy < 0 && this.vy > -18) {
+                            this.vy = 0;
+                        }
+
+                        if (Math.abs(this.vx) < 1.1)
+                            this.vx = 0;
+
+                        xF();
+                    }
+
+                    function xF() {
+                        if (this.vx > 0) {
+                            this.vx = this.vx - this.xFriction
+                        }
+                        if (this.vx < 0) {
+                            this.vx = this.vx + this.xFriction
+                        }
+                    }*/
+
+                    if (!this.onGround()) this.vy += this.weight;
+                    else this.vy = 0;
+
+                    // hvis ballen treffer vegg skal retning endres 
                     if (this.x + this.width > game.width || this.x - this.width < 0) {
                         this.vx *= -1
                     }
@@ -300,42 +326,22 @@
                         this.y + this.height > player2.y) {
                         // Behandle kollisjon med player2
                         this.vx = -this.maxVx
-                        this.vy = this.maxVy
+                        //this.vy = this.maxVy
                     }
 
-                    if (!this.onGround()) this.vy += this.weight;
-                    else this.vy = 0;*/
-
-                    if (ball.y + ball.radius > canvas.height) {
-                        ball.y = canvas.height - ball.radius;
-                        vy *= -bounce;
-
-                        if (vy < 0 && vy > -18) {
-                            vy = 0;
-                        }
-
-                        if (Math.abs(vx) < 1.1)
-                            vx = 0;
-
-                        xF();
-                    }
-
-                    function xF() {
-                        if (vx > 0) {
-                            vx = vx - xFriction
-                        }
-                        if (vx < 0) {
-                            vx = vx + xFriction
+                    // sparke knapp
+                    if (input.keys.includes('Space')) {
+                        if (this.x < player2.x + player2.width &&
+                            this.x + player2.width > player2.x &&
+                            this.y < player2.y + player2.height &&
+                            this.y + player2.height > player2.y) {
+                            this.vx = this.maxVx
+                            this.vy = this.maxVy
                         }
                     }
-
-                    if (!this.onGround()) this.vy += this.weight;
-                    else this.vy = 0;
                 }
-
-
                 draw(context) {
-                    context.fillStyle = "rgba(255, 255, 255, 0.01)"
+                    context.fillStyle = "rgba(255, 255, 255, 0)"
                     context.fillRect(this.x, this.y, this.width, this.height)
                     context.drawImage(this.image, this.x, this.y, this.width, this.height)
                 }
@@ -345,8 +351,6 @@
                 }
 
             }
-
-
             let ball = new Ball()
 
             class Goal1 {
@@ -388,7 +392,7 @@
                     this.height = 100;
                     this.width = 200;
                     this.x = 40;
-                    this.y = 300;
+                    this.y = 100;
                     this.image = document.getElementById("cloud");
                 }
 
@@ -397,6 +401,8 @@
                     context.drawImage(this.image, this.x, this.y, this.width, this.height)
                 }
             }
+
+            let cloud1 = new Cloud1()
 
             function collision() {
                 if (player1.x < player2.x + player2.width &&
@@ -408,7 +414,6 @@
                     player2.vx = 0;
                 }
             }
-
 
             animate();
         })
