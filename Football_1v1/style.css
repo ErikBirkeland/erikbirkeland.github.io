@@ -182,6 +182,10 @@ button:hover {
   display: none;
 }
 
+#cloud {
+  display: none;
+}
+
 /* Navbar */
 header {
   margin: 0;
