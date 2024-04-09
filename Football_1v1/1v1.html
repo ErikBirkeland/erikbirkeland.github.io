@@ -392,7 +392,7 @@
                 constructor() {
                     this.height = 100;
                     this.width = 200;
-                    this.x = 100;
+                    this.x = 50;
                     this.y = 90;
                     this.image = document.getElementById("cloud");
                 }
@@ -409,8 +409,8 @@
                 constructor() {
                     this.height = 100;
                     this.width = 200;
-                    this.x = 300;
-                    this.y = 90;
+                    this.x = 350;
+                    this.y = 110;
                     this.image = document.getElementById("cloud");
                 }
 
@@ -421,6 +421,40 @@
             }
 
             let cloud2 = new Cloud2()
+
+            class Cloud3 {
+                constructor() {
+                    this.height = 100;
+                    this.width = 200;
+                    this.x = 700;
+                    this.y = 100;
+                    this.image = document.getElementById("cloud");
+                }
+
+                draw(context) {
+                    context.fillRect(this.x, this.y, this.width, this.height)
+                    context.drawImage(this.image, this.x, this.y, this.width, this.height)
+                }
+            }
+
+            let cloud3 = new Cloud3()
+
+            class Cloud4 {
+                constructor() {
+                    this.height = 100;
+                    this.width = 200;
+                    this.x = 1000;
+                    this.y = 110;
+                    this.image = document.getElementById("cloud");
+                }
+
+                draw(context) {
+                    context.fillRect(this.x, this.y, this.width, this.height)
+                    context.drawImage(this.image, this.x, this.y, this.width, this.height)
+                }
+            }
+
+            let cloud4 = new Cloud4()
 
             function collision() {
                 if (player1.x < player2.x + player2.width &&
