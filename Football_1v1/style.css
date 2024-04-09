@@ -162,11 +162,15 @@ button:hover {
   );
 }
 
+#blue {
+  display: none;
+}
+
 #player1 {
   display: none;
 }
 
-#blue {
+#player2 {
   display: none;
 }
 

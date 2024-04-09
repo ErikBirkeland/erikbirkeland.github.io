@@ -38,7 +38,7 @@
     <canvas id="canvas1"></canvas>
 
     <img id="player1" src="bilder/pelle.png">
-    <!--<img id="player2" src="bilder/pelle.png">-->
+    <img id="player2" src="bilder/pelle.png">
     <img id="ball" src="bilder/fotball.png">
     <img id="goal1" src="bilder/goal1.png">
     <img id="goal2" src="bilder/goal2.png">
@@ -197,7 +197,7 @@
                     this.y = game.height - this.height;
                     this.vy = 0;
                     this.weight = 1
-                    this.image = document.getElementById("blue")
+                    this.image = document.getElementById("player2")
                     this.speed = 0;
                     this.maxSpeed = 10;
                 }
@@ -392,8 +392,8 @@
                 constructor() {
                     this.height = 100;
                     this.width = 200;
-                    this.x = 40;
-                    this.y = 100;
+                    this.x = 100;
+                    this.y = 90;
                     this.image = document.getElementById("cloud");
                 }
 
@@ -404,6 +404,23 @@
             }
 
             let cloud1 = new Cloud1()
+
+            class Cloud2 {
+                constructor() {
+                    this.height = 100;
+                    this.width = 200;
+                    this.x = 300;
+                    this.y = 90;
+                    this.image = document.getElementById("cloud");
+                }
+
+                draw(context) {
+                    context.fillRect(this.x, this.y, this.width, this.height)
+                    context.drawImage(this.image, this.x, this.y, this.width, this.height)
+                }
+            }
+
+            let cloud2 = new Cloud2()
 
             function collision() {
                 if (player1.x < player2.x + player2.width &&
