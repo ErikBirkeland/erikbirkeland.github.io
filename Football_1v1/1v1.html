@@ -42,7 +42,7 @@
     <img id="ball" src="bilder/fotball.png">
     <img id="goal1" src="bilder/goal1.png">
     <img id="goal2" src="bilder/goal2.png">
-    <img id="cloud" src="bilder/cloud.png">
+    <img class="cloud" src="bilder/cloud.png">
     <img id="blue" src="bilder/blue.png">
 
     <!--<button id="skins">Buy Skins</button>-->
@@ -76,6 +76,9 @@
                     goal1.draw(context)
                     goal2.draw(context)
                     cloud1.draw(context)
+                    cloud2.draw(context)
+                    cloud3.draw(context)
+                    cloud4.draw(context)
                 }
             }
 
@@ -376,7 +379,7 @@
                     this.width = 200;
                     this.x = 50;
                     this.y = 90;
-                    this.image = document.getElementById("cloud");
+                    this.image = document.querySelector(".cloud");
                 }
 
                 draw(context) {
@@ -393,7 +396,7 @@
                     this.width = 200;
                     this.x = 350;
                     this.y = 110;
-                    this.image = document.getElementById("cloud");
+                    this.image = document.querySelector(".cloud");
                 }
 
                 draw(context) {
@@ -410,7 +413,7 @@
                     this.width = 200;
                     this.x = 700;
                     this.y = 100;
-                    this.image = document.getElementById("cloud");
+                    this.image = document.querySelector(".cloud");
                 }
 
                 draw(context) {
@@ -427,7 +430,7 @@
                     this.width = 200;
                     this.x = 1000;
                     this.y = 110;
-                    this.image = document.getElementById("cloud");
+                    this.image = document.querySelector(".cloud");
                 }
 
                 draw(context) {
