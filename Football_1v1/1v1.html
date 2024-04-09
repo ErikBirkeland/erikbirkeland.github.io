@@ -50,11 +50,12 @@
 
     <!--<button id="skins">Buy Skins</button>-->
 
-    <!--<script src="script.js"></script>-->
+    <script src="script.js"></script>
 
     <script>
         let buttonEl = document.getElementById("start")
 
+        
         buttonEl.addEventListener('click', function startgame () {
             buttonEl.style.display="none"
             const canvas = document.getElementById('canvas1');
@@ -462,10 +463,24 @@
 
             function collision() {
                 if (player1.x < player2.x + player2.width &&
-                    player1.x + player1.width > player2.x) {
+                    player1.x + player1.width > player2.x &&
+                    player1.y < player2.y + player2.height &&
+                    player1.y + player1.height > player2.y) {
                     // Sett hastigheten til begge spillere til 0
-                    player1.vx = 0;
-                    player2.vx = 0;
+                    if(player1.speed > 0){
+                        player1.x -= 2*player1.maxSpeed;
+                    }else if(player1.speed < 0){
+                        player1.x += 2*player1.maxSpeed;
+                    }
+
+                    if(player2.speed > 0){
+                        player2.x -= 2*player2.maxSpeed;
+                    }else if(player2.speed < 0){
+                        player2.x += 2*player2.maxSpeed;
+                    }
+                    
+                    //player2.x += 2*player2.maxSpeed;
+                    //console.log("Kollisjon")
                 }
             }
 
