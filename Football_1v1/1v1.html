@@ -335,6 +335,14 @@
                             this.vy = this.maxVy * 2
                         }
                     }
+
+                    if (this.x < 40 && this.y < 625) {
+                        console.log("goal")
+                    }
+
+                    if (this.x > 1250 && this.y < 625) {
+                        console.log("goal")
+                    }
                 }
 
                 draw(context) {
