@@ -108,7 +108,7 @@
                             e.key === 'd' ||
                             e.key === 's' ||
                             e.key === 'e' ||
-                            e.key === 'Space'
+                            e.key === 'm'
                         ) && this.keys.indexOf(e.key) === -1) {
                             this.keys.push(e.key);
                         }
@@ -123,7 +123,7 @@
                             e.key === 'd' ||
                             e.key === 's' ||
                             e.key === 'e' ||
-                            e.key === 'Space') {
+                            e.key === 'm') {
                             this.keys.splice(this.keys.indexOf(e.key), 1);
                         }
                     });
@@ -314,12 +314,22 @@
                     }
 
                     if (input.keys.includes('e')) {
+                        if (this.x < player1.x + player1.width &&
+                            this.x + player1.width > player1.x &&
+                            this.y < player1.y + player1.height &&
+                            this.y + player1.height > player1.y) {
+                            this.vx = this.maxVx * 2
+                            this.vy = this.maxVy * 2
+                        }
+                    }
+
+                    if (input.keys.includes('m')) {
                         if (this.x < player2.x + player2.width &&
                             this.x + player2.width > player2.x &&
                             this.y < player2.y + player2.height &&
                             this.y + player2.height > player2.y) {
-                            this.vx = this.maxVx * 3
-                            this.vy = this.maxVy * 3
+                            this.vx = -this.maxVx * 2
+                            this.vy = this.maxVy * 2
                         }
                     }
                 }
