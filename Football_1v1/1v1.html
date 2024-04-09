@@ -35,6 +35,8 @@
 
     <p id="stilling">Ola 0-0 Erik</p>
 
+    <button id="start">Start Game</button>
+
     <canvas id="canvas1"></canvas>
 
     <img id="player1" src="bilder/red.png">
@@ -49,7 +51,10 @@
     <!--<script src="script.js"></script>-->
 
     <script>
-        window.addEventListener('load', function () {
+        let buttonEl = document.getElementById("start")
+
+        buttonEl.addEventListener('click', function startgame () {
+            buttonEl.style.display="none"
             const canvas = document.getElementById('canvas1');
             const ctx = canvas.getContext('2d');
             canvas.width = 1300;
@@ -450,9 +455,7 @@
 
             function collision() {
                 if (player1.x < player2.x + player2.width &&
-                    player1.y < player2.y + player2.height &&
-                    player1.x + player1.width > player2.x &&
-                    player1.y + player1.height > player2.y) {
+                    player1.x + player1.width > player2.x) {
                     // Sett hastigheten til begge spillere til 0
                     player1.vx = 0;
                     player2.vx = 0;
