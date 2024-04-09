@@ -37,13 +37,12 @@
 
     <canvas id="canvas1"></canvas>
 
-    <img id="player1" src="bilder/pelle.png">
-    <img id="player2" src="bilder/pelle.png">
+    <img id="player1" src="bilder/red.png">
+    <img id="player2" src="bilder/blue.png">
     <img id="ball" src="bilder/fotball.png">
     <img id="goal1" src="bilder/goal1.png">
     <img id="goal2" src="bilder/goal2.png">
     <img class="cloud" src="bilder/cloud.png">
-    <img id="blue" src="bilder/blue.png">
 
     <!--<button id="skins">Buy Skins</button>-->
 
@@ -134,8 +133,8 @@
 
             class Player1 {
                 constructor() {
-                    this.width = 57;
-                    this.height = 100;
+                    this.width = 100;
+                    this.height = 140;
                     this.x = 100;
                     this.y = game.height - this.height;
                     this.vy = 0;
@@ -184,8 +183,8 @@
 
             class Player2 {
                 constructor() {
-                    this.width = 57;
-                    this.height = 100;
+                    this.width = 100;
+                    this.height = 110;
                     this.x = 1143;
                     this.y = game.height - this.height;
                     this.vy = 0;
