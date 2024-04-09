@@ -157,16 +157,6 @@
                     if (!this.onGround()) this.vy += this.weight;
                     else this.vy = 0;
 
-                    /*if (input.keys.includes('Space')) {
-                        if (ball.x < this.x + this.width &&
-                            ball.x + this.width > this.x &&
-                            ball.y < this.y + this.height &&
-                            ball.y + this.height > this.y) {
-                            ball.vx = this.maxVx*3
-                            ball.vy = this.maxVy*3
-                        }
-                    }*/
-
                     /*if (this.x < player2.x + player2.width &&
                         this.x + this.width > player2.x &&
                         this.y < player2.y + player2.height &&
@@ -177,7 +167,7 @@
                 }
 
                 draw(context) {
-                    context.fillStyle = 'red'
+                    context.fillStyle = "rgba(255, 255, 255, 0)"
                     context.fillRect(this.x, this.y, this.width, this.height)
                     context.drawImage(this.image, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height)
                 }
@@ -260,9 +250,9 @@
                     this.vx = 0
                     this.vy = -2
                     this.maxVy = -8
-                    this.gravity = 0.2
-                    this.xFriction = 0.5
-                    this.maxVx = 20
+                    this.gravity = 0.3
+                    this.xFriction = 0.3
+                    this.maxVx = 10
                     this.bounce = 0.7
                     this.image = document.getElementById("ball")
                 }
@@ -273,29 +263,6 @@
                     this.y += this.vy
                     this.vy += this.gravity
 
-                    /*if (this.y + this.height > game.height) {
-                        this.y = game.height - this.height;
-                        this.vy *= -this.bounce;
-
-                        if (this.vy < 0 && this.vy > -18) {
-                            this.vy = 0;
-                        }
-
-                        if (Math.abs(this.vx) < 1.1)
-                            this.vx = 0;
-
-                        xF();
-                    }
-
-                    function xF() {
-                        if (this.vx > 0) {
-                            this.vx = this.vx - this.xFriction
-                        }
-                        if (this.vx < 0) {
-                            this.vx = this.vx + this.xFriction
-                        }
-                    }*/
-
                     if (!this.onGround()) this.vy += this.weight;
                     else this.vy = -this.maxVy;
 
@@ -304,13 +271,17 @@
                         this.vx *= -1
                     }
 
-                    if (this.vy < 0 && this.vy > -0.5) {
+                    if (this.vy < 0 && this.vy > -6) {
                         this.vy = 0;
                     }
 
-                    if (this.y + this.height >= game.height) {
-                        //this.y = game.height - this.height;
-                        this.vy *= -this.bounce
+                    if (this.y + this.width > game.height) { // ||
+                        this.y = game.height - this.height;
+                        this.vy *= -this.bounce;
+
+                        if (this.vy < 0 && this.vy > -17.809) {
+                            this.vy = 0;
+                        }
 
                         if (Math.abs(this.vx) < 1.1)
                             this.vx = 0;
@@ -328,19 +299,28 @@
                         this.y < player1.y + player1.height &&
                         this.y + this.height > player1.y) {
                         this.vx = this.maxVx
-                        this.vy = this.maxVy
                     }
 
                     // Sjekk kollisjon med player2
                     if (this.x < player2.x + player2.width &&
-                        this.x + this.width > player2.x &&
                         this.y < player2.y + player2.height &&
+                        this.x + this.width > player2.x &&
                         this.y + this.height > player2.y) {
                         // Behandle kollisjon med player2
                         this.vx = -this.maxVx
-                        this.vy = this.maxVy
+                    }
+
+                    if (input.keys.includes('e')) {
+                        if (this.x < player2.x + player2.width &&
+                            this.x + player2.width > player2.x &&
+                            this.y < player2.y + player2.height &&
+                            this.y + player2.height > player2.y) {
+                            this.vx = this.maxVx * 3
+                            this.vy = this.maxVy * 3
+                        }
                     }
                 }
+
                 draw(context) {
                     context.fillStyle = "rgba(255, 255, 255, 0)"
                     context.fillRect(this.x, this.y, this.width, this.height)
