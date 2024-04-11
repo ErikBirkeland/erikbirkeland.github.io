@@ -402,7 +402,6 @@ buttonEl.addEventListener('click', function startgame() {
         }
 
         draw(context) {
-            context.fillRect(this.x, this.y, this.width, this.height)
             context.drawImage(this.image, this.x, this.y, this.width, this.height)
         }
     }
@@ -419,7 +418,6 @@ buttonEl.addEventListener('click', function startgame() {
         }
 
         draw(context) {
-            context.fillRect(this.x, this.y, this.width, this.height)
             context.drawImage(this.image, this.x, this.y, this.width, this.height)
         }
     }
@@ -436,7 +434,6 @@ buttonEl.addEventListener('click', function startgame() {
         }
 
         draw(context) {
-            context.fillRect(this.x, this.y, this.width, this.height)
             context.drawImage(this.image, this.x, this.y, this.width, this.height)
         }
     }
@@ -453,7 +450,6 @@ buttonEl.addEventListener('click', function startgame() {
         }
 
         draw(context) {
-            context.fillRect(this.x, this.y, this.width, this.height)
             context.drawImage(this.image, this.x, this.y, this.width, this.height)
         }
     }
@@ -465,7 +461,7 @@ buttonEl.addEventListener('click', function startgame() {
             player1.x + player1.width > player2.x &&
             player1.y < player2.y + player2.height &&
             player1.y + player1.height > player2.y) {
-            // Sett hastigheten til begge spillere til 0
+
             if (player1.speed > 0) {
                 player1.x -= 2 * player1.maxSpeed;
             } else if (player1.speed < 0) {
@@ -478,8 +474,7 @@ buttonEl.addEventListener('click', function startgame() {
                 player2.x += 2 * player2.maxSpeed;
             }
 
-            //player2.x += 2*player2.maxSpeed;
-            //console.log("Kollisjon")
+            
         }
     }
 
