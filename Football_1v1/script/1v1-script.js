@@ -245,7 +245,7 @@ buttonEl.addEventListener('click', function startgame() {
             this.gravity = 0.3
             this.xFriction = 0.2
             this.maxVx = 10
-            this.bounce = 0.8
+            this.bounce = 0.85
             this.image = document.getElementById("ball")
         }
 
@@ -261,14 +261,9 @@ buttonEl.addEventListener('click', function startgame() {
                 this.vx *= -1
             }
 
-            if (this.y + this.height >= game.height) { // ||
+            if (this.y + this.height > game.height) { // ||
                 //this.y = game.height - this.height;
                 this.vy *= -this.bounce;
-                
-
-                if (this.vy < 0 && this.vy > -0.5) {
-                    this.vy = 0;
-                }
 
                 if (Math.abs(this.vx) < 1.1)
                     this.vx = 0;
@@ -280,6 +275,11 @@ buttonEl.addEventListener('click', function startgame() {
                     this.vx = this.vx + this.xFriction
                 }
             }
+
+            if (this.vy < 0 && this.vy > -2) {
+                this.vy = 0;
+            }
+
 
             if (this.x < player1.x + player1.width &&
                 this.x + this.width > player1.x &&
