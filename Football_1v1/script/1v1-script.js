@@ -25,7 +25,6 @@ buttonEl.addEventListener('click', function startgame() {
         time--
     }
 
-
     class Game {
         constructor(width, height) {
             this.width = width;
@@ -299,20 +298,27 @@ buttonEl.addEventListener('click', function startgame() {
                 }
             }
 
-            let red = 0
-            let blue = 0
-
-            if (this.x < 40 && this.y < 625) {
+            if (this.x < 40 && this.y > 270) {
                 console.log("goal")
                 blue = blue + 1
                 scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
+                player1.x = 100;
+                player2.x = 1115;
+                this.x = (game.width / 2) - 20
+                this.y = game.height - this.height * 10
+                this.vx = 0;
             }
 
 
-            if (this.x > 1250 && this.y < 625) {
+            if (this.x > 1230 && this.y > 270) {
                 console.log("goal")
                 red = red + 1
                 scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
+                player1.x = 100;
+                player2.x = 1115;
+                this.x = (game.width / 2) - 20
+                this.y = game.height - this.height * 10
+                this.vx = 0;
             }
         }
 
@@ -333,7 +339,7 @@ buttonEl.addEventListener('click', function startgame() {
         constructor() {
             this.height = 625;
             this.width = 250;
-            this.x = -110;
+            this.x = -145;
             this.y = 52;
             this.image = document.getElementById('goal1');
         }
@@ -350,7 +356,7 @@ buttonEl.addEventListener('click', function startgame() {
         constructor() {
             this.height = 625;
             this.width = 250;
-            this.x = 1160;
+            this.x = 1195;
             this.y = 52;
             this.image = document.getElementById("goal2");
         }
