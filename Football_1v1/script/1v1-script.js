@@ -2,6 +2,7 @@ let buttonEl = document.getElementById("start")
 let scoreboardEl = document.querySelector(".scoreboard")
 let scoreRedEl = document.querySelector(".scoreboard_score-one")
 let scoreBlueEl = document.querySelector(".scoreboard_score-two")
+let celebrationEl = document.getElementById("celebration")
 
 scoreboardEl.style.display = "none"
 
@@ -322,6 +323,7 @@ buttonEl.addEventListener('click', function startgame() {
 
             if (this.x < 40 && this.y > 270) {
                 console.log("goal")
+                celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
                 scoreboardEl.querySelector(".scoreboard_score-two").textContent = scoreBlueEl.textContent;
@@ -335,6 +337,7 @@ buttonEl.addEventListener('click', function startgame() {
 
             if (this.x > 1230 && this.y > 270) {
                 console.log("goal")
+                celebrationEl.play()
                 scoreRedEl.textContent = Number(scoreRedEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
                 scoreboardEl.querySelector(".scoreboard_score-two").textContent = scoreBlueEl.textContent;
