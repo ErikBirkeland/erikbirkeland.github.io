@@ -33,7 +33,7 @@
 
     <br><br>
 
-    <p id="score"></p>
+    <p id="score">Red 0 - 0 Blue</p>
 
     <br>
 
@@ -58,11 +58,8 @@
         let buttonEl = document.getElementById("start")
         let scoreEl = document.getElementById("score")
 
-        let red = 0
-        let blue = 0
-        
-        buttonEl.addEventListener('click', function startgame () {
-            buttonEl.style.display="none"
+        buttonEl.addEventListener('click', function startgame() {
+            buttonEl.style.display = "none"
             const canvas = document.getElementById('canvas1');
             const ctx = canvas.getContext('2d');
             canvas.width = 1300;
@@ -269,7 +266,6 @@
                     this.image = document.getElementById("ball")
                 }
 
-
                 update() {
                     this.x += this.vx
                     this.y += this.vy
@@ -341,12 +337,15 @@
                             this.vy = this.maxVy * 2
                         }
                     }
+                    let red = 0
+                    let blue = 0
 
                     if (this.x < 40 && this.y < 625) {
                         console.log("goal")
                         blue += 1
                         score.innerHTML = `Red ${red.value} - ${blue.value} Blue`
                     }
+                    
 
                     if (this.x > 1250 && this.y < 625) {
                         console.log("goal")
@@ -476,18 +475,18 @@
                     player1.y < player2.y + player2.height &&
                     player1.y + player1.height > player2.y) {
                     // Sett hastigheten til begge spillere til 0
-                    if(player1.speed > 0){
-                        player1.x -= 2*player1.maxSpeed;
-                    }else if(player1.speed < 0){
-                        player1.x += 2*player1.maxSpeed;
+                    if (player1.speed > 0) {
+                        player1.x -= 2 * player1.maxSpeed;
+                    } else if (player1.speed < 0) {
+                        player1.x += 2 * player1.maxSpeed;
                     }
 
-                    if(player2.speed > 0){
-                        player2.x -= 2*player2.maxSpeed;
-                    }else if(player2.speed < 0){
-                        player2.x += 2*player2.maxSpeed;
+                    if (player2.speed > 0) {
+                        player2.x -= 2 * player2.maxSpeed;
+                    } else if (player2.speed < 0) {
+                        player2.x += 2 * player2.maxSpeed;
                     }
-                    
+
                     //player2.x += 2*player2.maxSpeed;
                     //console.log("Kollisjon")
                 }
