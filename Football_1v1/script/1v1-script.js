@@ -244,7 +244,7 @@ buttonEl.addEventListener('click', function startgame() {
             this.gravity = 0.3
             this.xFriction = 0.2
             this.maxVx = 10
-            this.bounce = 0.79
+            this.bounce = 0.8
             this.image = document.getElementById("ball")
         }
 
@@ -265,7 +265,7 @@ buttonEl.addEventListener('click', function startgame() {
                 this.vy *= -this.bounce;
                 
 
-                if (this.vy < 0 && this.vy > -0.05) {
+                if (this.vy < 0 && this.vy > -0.5) {
                     this.vy = 0;
                 }
 
