@@ -18,6 +18,9 @@ buttonEl.addEventListener('click', function startgame() {
     canvas.width = 1300;
     canvas.height = 500;
 
+    const startingMinutes = 0.1
+    let time = startingMinutes * 60
+
     setInterval(updateCountdown, 1000)
 
     function updateCountdown() {
@@ -28,7 +31,20 @@ buttonEl.addEventListener('click', function startgame() {
 
         countdownEl.innerHTML = `${minutes}:${seconds}`
         time--
+
+        if (time < 0){
+            time = 0
+        }
+
+        if(time === 0){
+            setTimeout(reloadGame, 2000)
+        }
     }
+
+    function reloadGame(){
+        window.location.reload()
+    }
+    
 
     class Game {
         constructor(width, height) {
