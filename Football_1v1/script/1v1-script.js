@@ -33,19 +33,19 @@ buttonEl.addEventListener('click', function startgame() {
         countdownEl.innerHTML = `${minutes}:${seconds}`
         time--
 
-        if (time < 0){
+        if (time < 0) {
             time = 0
         }
 
-        if(time === 0){
+        if (time === 0) {
             setTimeout(reloadGame, 2000)
         }
     }
 
-    function reloadGame(){
+    function reloadGame() {
         window.location.reload()
     }
-    
+
 
     class Game {
         constructor(width, height) {
@@ -242,9 +242,9 @@ buttonEl.addEventListener('click', function startgame() {
             this.vy = -2
             this.maxVy = -8
             this.gravity = 0.3
-            this.xFriction = 0.3
+            this.xFriction = 0.2
             this.maxVx = 10
-            this.bounce = 0.7
+            this.bounce = 0.79
             this.image = document.getElementById("ball")
         }
 
@@ -253,23 +253,19 @@ buttonEl.addEventListener('click', function startgame() {
             this.y += this.vy
             this.vy += this.gravity
 
-            if (!this.onGround()) this.vy += this.weight;
-            else this.vy = -this.maxVy;
+            console.log(this.vy)
 
             // hvis ballen treffer vegg skal retning endres 
             if (this.x + this.width > game.width || this.x - this.width < 0) {
                 this.vx *= -1
             }
 
-            if (this.vy < 0 && this.vy > -6) {
-                this.vy = 0;
-            }
-
-            if (this.y + this.width > game.height) { // ||
-                this.y = game.height - this.height;
+            if (this.y + this.height >= game.height) { // ||
+                //this.y = game.height - this.height;
                 this.vy *= -this.bounce;
+                
 
-                if (this.vy < 0 && this.vy > -17.809) {
+                if (this.vy < 0 && this.vy > -0.05) {
                     this.vy = 0;
                 }
 
