@@ -8,6 +8,24 @@ buttonEl.addEventListener('click', function startgame() {
     canvas.width = 1300;
     canvas.height = 500;
 
+    let startingMinutes = 2
+    let time = startingMinutes / 60
+
+    let countdownEl = document.getElementById("countdown")
+
+    setInterval(updateCountdown, 1000)
+
+    function updateCountdown(){
+        let minutes = Math.floor(time / 60)
+        let seconds = time % 60
+
+        seconds = seconds < 10 ? '0' + seconds : seconds
+
+        countdownEl.innerHTML = `${minutes}:${seconds}`
+        time--
+    }
+
+
     class Game {
         constructor(width, height) {
             this.width = width;
@@ -280,20 +298,21 @@ buttonEl.addEventListener('click', function startgame() {
                     this.vy = this.maxVy * 2
                 }
             }
+
             let red = 0
             let blue = 0
 
             if (this.x < 40 && this.y < 625) {
                 console.log("goal")
-                blue += 1
-                score.innerHTML = `Red ${red.value} - ${blue.value} Blue`
+                blue = blue + 1
+                scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
             }
 
 
             if (this.x > 1250 && this.y < 625) {
                 console.log("goal")
-                red += 1
-                score.innerHTML = `Red ${red.value} - ${blue.value} Blue`
+                red = red + 1
+                scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
             }
         }
 
