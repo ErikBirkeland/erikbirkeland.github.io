@@ -1,0 +1,30 @@
+.beskrivelse {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+  
+#index-main {
+    display: grid;
+  
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 80px;
+}
+
+@media(max-width: 730px) {
+    #index-main {
+        grid-template-columns: 1fr;
+    }          
+}
+  
+#hvordan-spille {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+}
+
+.spilltaster {
+    width: 140px;
+    height: 140px;
+}

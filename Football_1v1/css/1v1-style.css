@@ -1,0 +1,75 @@
+.scoreboard {
+    place-self: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 300px;
+    font-size: 30px;
+}
+  
+.scoreboard_name, .scoreboard_score {
+    padding: 10px;
+    text-align: center;
+}
+  
+.scoreboard_name {
+    border-bottom: 3px solid var(--light-blue);
+}
+  
+.scoreboard_name-one {
+    color: red;
+}
+  
+.scoreboard_name-two {
+    color: blue;
+}
+  
+#start {
+    width: fit-content;
+    margin: 20px auto;
+}
+  
+#canvas1 {
+    border: 5px solid black;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 10px;
+  
+    background-image: linear-gradient(
+      var(--light-blue) 0%,
+      var(--light-blue) 75%,
+      var(--grass) 75%, 
+      var(--grass) 100%
+    );
+}
+  
+#blue {
+    display: none;
+}
+  
+#player1 {
+    display: none;
+}
+  
+#player2 {
+    display: none;
+}
+  
+#ball {
+    display: none;
+}
+  
+#goal1 {
+    display: none;
+}
+  
+#goal2 {
+    display: none;
+}
+  
+.cloud {
+    display: none;
+}
