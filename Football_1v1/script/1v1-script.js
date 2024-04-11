@@ -1,9 +1,5 @@
 let buttonEl = document.getElementById("start")
 let scoreEl = document.getElementById("score")
-
-const startingMinutes = 2
-let time = startingMinutes / 60
-
 const countdownEl = document.getElementById("countdown")
 
 buttonEl.addEventListener('click', function startgame() {
@@ -12,6 +8,9 @@ buttonEl.addEventListener('click', function startgame() {
     const ctx = canvas.getContext('2d');
     canvas.width = 1300;
     canvas.height = 500;
+
+    const startingMinutes = 0.1
+    let time = startingMinutes * 60
 
     setInterval(updateCountdown, 1000)
 
@@ -23,7 +22,20 @@ buttonEl.addEventListener('click', function startgame() {
 
         countdownEl.innerHTML = `${minutes}:${seconds}`
         time--
+
+        if (time < 0){
+            time = 0
+        }
+
+        if(time === 0){
+            setTimeout(reloadGame, 2000)
+        }
     }
+
+    function reloadGame(){
+        window.location.reload()
+    }
+    
 
     class Game {
         constructor(width, height) {
