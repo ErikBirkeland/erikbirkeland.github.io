@@ -141,21 +141,40 @@ button:hover {
 }
 
 /* 1v1 */
-#stilling {
-  font-size: 45px;
+.scoreboard {
+  place-self: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 300px;
+  font-size: 30px;
+}
+
+.scoreboard_name, .scoreboard_score {
+  padding: 10px;
+  text-align: center;
+}
+
+.scoreboard_name {
+  border-bottom: 1px solid var(--light-blue);
+}
+
+.scoreboard_name-one {
+  color: red;
+}
+
+.scoreboard_name-two {
+  color: blue;
 }
 
 #start {
   width: fit-content;
-  /* margin-left: auto;
-  margin-right: auto; */
   margin: 20px auto;
 }
 
 #canvas1 {
   border: 5px solid black;
   position: absolute;
-  top: 55%;
+  top: 68%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 100%;
