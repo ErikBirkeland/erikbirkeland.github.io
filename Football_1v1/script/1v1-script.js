@@ -1,5 +1,8 @@
 let buttonEl = document.getElementById("start")
 let scoreEl = document.getElementById("score")
+let scoreboardEl = document.querySelector(".scoreboard")
+
+scoreboardEl.style.display = "none"
 
 const startingMinutes = 2
 let time = startingMinutes / 60
@@ -8,6 +11,8 @@ const countdownEl = document.getElementById("countdown")
 
 buttonEl.addEventListener('click', function startgame() {
     buttonEl.style.display = "none"
+    scoreboardEl.style.display = "grid"
+
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
     canvas.width = 1300;
