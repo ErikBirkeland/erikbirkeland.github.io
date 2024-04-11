@@ -1,6 +1,7 @@
 let buttonEl = document.getElementById("start")
-let scoreEl = document.getElementById("score")
 let scoreboardEl = document.querySelector(".scoreboard")
+let scoreRedEl = document.querySelector(".scoreboard_score-one")
+let scoreBlueEl = document.querySelector(".scoreboard_score-two")
 
 scoreboardEl.style.display = "none"
 
@@ -321,7 +322,7 @@ buttonEl.addEventListener('click', function startgame() {
 
             if (this.x < 40 && this.y > 270) {
                 console.log("goal")
-                blue = blue + 1
+                scoreBlueEl += 1
                 scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
                 player1.x = 100;
                 player2.x = 1115;
@@ -333,7 +334,6 @@ buttonEl.addEventListener('click', function startgame() {
 
             if (this.x > 1230 && this.y > 270) {
                 console.log("goal")
-                red = red + 1
                 scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
                 player1.x = 100;
                 player2.x = 1115;
