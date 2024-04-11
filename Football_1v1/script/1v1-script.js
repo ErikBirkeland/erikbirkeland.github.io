@@ -322,8 +322,8 @@ buttonEl.addEventListener('click', function startgame() {
 
             if (this.x < 40 && this.y > 270) {
                 console.log("goal")
-                scoreBlueEl += 1
-                scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
+                scoreBlueEl.value += 1
+                scoreboardEl.innerHTML = `Red ${scoreRedEl.value} - ${scoreBlueEl.value} Blue`
                 player1.x = 100;
                 player2.x = 1115;
                 this.x = (game.width / 2) - 20
@@ -334,7 +334,8 @@ buttonEl.addEventListener('click', function startgame() {
 
             if (this.x > 1230 && this.y > 270) {
                 console.log("goal")
-                scoreEl.innerHTML = `Red ${red} - ${blue} Blue`
+                scoreRedEl.value += 1
+                scoreboardEl.innerHTML = `Red ${scoreRedEl.value} - ${scoreBlueEl.value} Blue`
                 player1.x = 100;
                 player2.x = 1115;
                 this.x = (game.width / 2) - 20
