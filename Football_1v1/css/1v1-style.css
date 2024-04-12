@@ -73,3 +73,21 @@
 .cloud {
     display: none;
 }
+
+#available {
+    display: none;
+}
+
+@media(max-width: 1000px) {
+    #canvas1 {
+        display: none;
+    }
+
+    #start {
+        display: none;
+    }
+
+    #available {
+        display: inline;
+    }
+} 

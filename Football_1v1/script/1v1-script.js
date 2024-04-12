@@ -3,6 +3,7 @@ let scoreboardEl = document.querySelector(".scoreboard")
 let scoreRedEl = document.querySelector(".scoreboard_score-one")
 let scoreBlueEl = document.querySelector(".scoreboard_score-two")
 let celebrationEl = document.getElementById("celebration")
+let gameOverEl = document.getElementById("game-over")
 
 scoreboardEl.style.display = "none"
 
@@ -303,7 +304,7 @@ buttonEl.addEventListener('click', function startgame() {
                     this.y < player1.y + player1.height &&
                     this.y + player1.height > player1.y) {
                     this.vx = this.maxVx * 2
-                    this.vy = this.maxVy * 2
+                    this.vy = this.maxVy * 1.4
                 }
             }
 
@@ -313,11 +314,11 @@ buttonEl.addEventListener('click', function startgame() {
                     this.y < player2.y + player2.height &&
                     this.y + player2.height > player2.y) {
                     this.vx = -this.maxVx * 2
-                    this.vy = this.maxVy * 2
+                    this.vy = this.maxVy * 1.4
                 }
             }
 
-            if (this.x < 40 && this.y > 270) {
+            if (this.x < 50 && this.y > 270) {
                 console.log("goal")
                 celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
@@ -331,7 +332,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
 
-            if (this.x > 1230 && this.y > 270) {
+            if (this.x > 1220 && this.y > 270) {
                 console.log("goal")
                 celebrationEl.play()
                 scoreRedEl.textContent = Number(scoreRedEl.textContent) + 1;
