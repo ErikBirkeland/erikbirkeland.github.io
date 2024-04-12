@@ -43,7 +43,7 @@ buttonEl.addEventListener('click', function startgame() {
             setTimeout(reloadGame, 2000)
         }
     }
-
+    
     function reloadGame() {
         window.location.reload()
     }
