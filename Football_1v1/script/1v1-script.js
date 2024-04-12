@@ -318,7 +318,7 @@ buttonEl.addEventListener('click', function startgame() {
                 }
             }
 
-            if (this.x < 50 && this.y > 270) {
+            if (this.x < 50 && this.y > 250) {
                 console.log("goal")
                 celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
@@ -332,7 +332,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
 
-            if (this.x > 1220 && this.y > 270) {
+            if (this.x > 1220 && this.y > 250) {
                 console.log("goal")
                 celebrationEl.play()
                 scoreRedEl.textContent = Number(scoreRedEl.textContent) + 1;
