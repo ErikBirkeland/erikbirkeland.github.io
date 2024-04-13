@@ -149,7 +149,7 @@ buttonEl.addEventListener('click', function startgame() {
 
     class Player1 {
         constructor() {
-            this.width = 100;
+            this.width = 85;
             this.height = 116;
             this.x = 100;
             this.y = game.height - this.height;
@@ -317,7 +317,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
             // sjekke kollisjon med mål
-            if (this.x < 50 && this.y > 220) {
+            if (this.x < 35 && this.y > 220) {
                 celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
