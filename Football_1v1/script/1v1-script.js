@@ -3,7 +3,11 @@ let scoreboardEl = document.querySelector(".scoreboard")
 let scoreRedEl = document.querySelector(".scoreboard_score-one")
 let scoreBlueEl = document.querySelector(".scoreboard_score-two")
 let celebrationEl = document.getElementById("celebration")
+let gameOverEl = document.getElementById("game-over")
+let canvasEl = document.getElementById("canvas1")
+let playAgainbtn = document.getElementById("play-again")
 
+playAgainbtn.style.display = "none"
 scoreboardEl.style.display = "none"
 
 const startingMinutes = 2
@@ -20,7 +24,7 @@ buttonEl.addEventListener('click', function startgame() {
     canvas.width = 1300;
     canvas.height = 500;
 
-    const startingMinutes = 2
+    const startingMinutes = 0.1
     let time = startingMinutes * 60
 
     setInterval(updateCountdown, 1000)
@@ -39,14 +43,22 @@ buttonEl.addEventListener('click', function startgame() {
         }
 
         if (time === 0) {
-            setTimeout(reloadGame, 2000)
+            setTimeout(gameOver, 1000)
         }
     }
 
-    function reloadGame() {
-        window.location.reload()
-    }
+    function gameOver() {
+        canvasEl.style.display = "none"
+        gameOverEl.innerHTML = "Game over"
 
+        countdownEl.style.display = "none"
+
+        playAgainbtn.style.display = "block"
+
+        playAgainbtn.addEventListener('click', function reloadGame() {
+            window.location.reload()
+        })
+    }
 
     class Game {
         constructor(width, height) {
@@ -276,7 +288,7 @@ buttonEl.addEventListener('click', function startgame() {
                     this.y < player1.y + player1.height &&
                     this.y + player1.height > player1.y) {
                     this.vx = this.maxVx * 2
-                    this.vy = this.maxVy * 2
+                    this.vy = this.maxVy * 1.4
                 }
             }
 
@@ -286,11 +298,11 @@ buttonEl.addEventListener('click', function startgame() {
                     this.y < player2.y + player2.height &&
                     this.y + player2.height > player2.y) {
                     this.vx = -this.maxVx * 2
-                    this.vy = this.maxVy * 2
+                    this.vy = this.maxVy * 1.4
                 }
             }
 
-            if (this.x < 40 && this.y > 270) {
+            if (this.x < 50 && this.y > 240) {
                 console.log("goal")
                 celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
@@ -304,7 +316,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
 
-            if (this.x > 1230 && this.y > 270) {
+            if (this.x > 1220 && this.y > 240) {
                 console.log("goal")
                 celebrationEl.play()
                 scoreRedEl.textContent = Number(scoreRedEl.textContent) + 1;

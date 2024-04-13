@@ -92,7 +92,7 @@ function answer (){
     }
         
     if (selectedAnswer == data[0].correctAnswer){
-        feedbackEl.innerHTML ="correct +10 coins"
+        feedbackEl.innerHTML = "correct +10 coins"
         localStorage.teller = Number(localStorage.teller) + 10
         cashEl.innerHTML = `${localStorage.teller}`
     }else{
