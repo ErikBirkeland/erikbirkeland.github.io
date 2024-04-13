@@ -97,7 +97,7 @@ buttonEl.addEventListener('click', function startgame() {
                     e.key === 'd' ||
                     e.key === 's' ||
                     e.key === 'e' ||
-                    e.key === 'm'
+                    e.key === 'Shift'
                 ) && this.keys.indexOf(e.key) === -1) {
                     this.keys.push(e.key);
                 }
@@ -112,7 +112,7 @@ buttonEl.addEventListener('click', function startgame() {
                     e.key === 'd' ||
                     e.key === 's' ||
                     e.key === 'e' ||
-                    e.key === 'm') {
+                    e.key === 'Shift') {
                     this.keys.splice(this.keys.indexOf(e.key), 1);
                 }
             });
@@ -148,14 +148,6 @@ buttonEl.addEventListener('click', function startgame() {
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
-
-            /*if (this.x < player2.x + player2.width &&
-                this.x + this.width > player2.x &&
-                this.y < player2.y + player2.height &&
-                this.y + this.height > player2.y) {
-                this.vx = 0
-                player2.vx = 0
-            }*/
         }
 
         draw(context) {
@@ -198,25 +190,6 @@ buttonEl.addEventListener('click', function startgame() {
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
-
-            if (input.keys.includes('Space')) {
-                if (ball.x < player2.x + player2.width &&
-                    this.x + player2.width > player2.x &&
-                    this.y < player2.y + player2.height &&
-                    this.y + player2.height > player2.y) {
-                    this.vx = this.maxVx
-                    this.vy = this.maxVy
-                }
-            }
-
-            /*if (player1.x < this.x + this.width &&
-                player1.x + player1.width > this.x &&
-                player1.y < this.y + this.height &&
-                player1.y + player1.height > this.y) {
-                console.log("kollisjon")
-                player1.vx = 0
-                this.vx = 0
-            }*/
         }
 
         draw(context) {
@@ -254,7 +227,7 @@ buttonEl.addEventListener('click', function startgame() {
             this.y += this.vy
             this.vy += this.gravity
 
-            console.log(this.vy)
+            //console.log(this.vy)
 
             // hvis ballen treffer vegg skal retning endres 
             if (this.x + this.width > game.width || this.x - this.width < 0) {
@@ -307,7 +280,7 @@ buttonEl.addEventListener('click', function startgame() {
                 }
             }
 
-            if (input.keys.includes('m')) {
+            if (input.keys.includes('Shift')) {
                 if (this.x < player2.x + player2.width &&
                     this.x + player2.width > player2.x &&
                     this.y < player2.y + player2.height &&
