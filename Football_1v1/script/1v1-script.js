@@ -25,7 +25,7 @@ buttonEl.addEventListener('click', function startgame() {
     canvas.width = 1300;
     canvas.height = 500;
 
-    const startingMinutes = 0.1
+    const startingMinutes = 0.5
     let time = startingMinutes * 60
 
     setInterval(updateCountdown, 1000)
@@ -150,7 +150,7 @@ buttonEl.addEventListener('click', function startgame() {
     class Player1 {
         constructor() {
             this.width = 100;
-            this.height = 140;
+            this.height = 116;
             this.x = 100;
             this.y = game.height - this.height;
             this.vy = 0;
@@ -192,7 +192,7 @@ buttonEl.addEventListener('click', function startgame() {
     class Player2 {
         constructor() {
             this.width = 100;
-            this.height = 112;
+            this.height = 120;
             this.x = 1115;
             this.y = game.height - this.height;
             this.vy = 0;
@@ -317,7 +317,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
             // sjekke kollisjon med mål
-            if (this.x < 50 && this.y > 240) {
+            if (this.x < 50 && this.y > 220) {
                 celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
@@ -330,7 +330,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
 
-            if (this.x > 1220 && this.y > 240) {
+            if (this.x > 1220 && this.y > 220) {
                 celebrationEl.play()
                 scoreRedEl.textContent = Number(scoreRedEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
