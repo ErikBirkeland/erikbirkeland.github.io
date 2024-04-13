@@ -6,6 +6,7 @@ let celebrationEl = document.getElementById("celebration")
 let gameOverEl = document.getElementById("game-over")
 let canvasEl = document.getElementById("canvas1")
 let playAgainbtn = document.getElementById("play-again")
+let resultEl = document.getElementById("result")
 
 playAgainbtn.style.display = "none"
 scoreboardEl.style.display = "none"
@@ -56,8 +57,21 @@ buttonEl.addEventListener('click', function startgame() {
 
         playAgainbtn.style.display = "block"
 
+        resultEl.style.display = "block"
+
+        if(scoreBlueEl.textContent > scoreRedEl.textContent){
+            resultEl.innerHTML = "Blue wins"
+        }
+        else if(scoreBlueEl.textContent === scoreRedEl.textContent){
+            resultEl.innerHTML = "Draw"
+        }
+        else{
+            resultEl.innerHTML = "Red wins"
+        }
+
         playAgainbtn.addEventListener('click', function reloadGame() {
             window.location.reload()
+            resultEl.style.display = "none"
         })
     }
 
