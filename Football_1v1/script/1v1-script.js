@@ -40,6 +40,7 @@ buttonEl.addEventListener('click', function startgame() {
 
         if (time < 0) {
             time = 0
+            ball.vx = 0
         }
 
         if (time === 0) {
