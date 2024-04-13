@@ -25,7 +25,7 @@ buttonEl.addEventListener('click', function startgame() {
     canvas.width = 1300;
     canvas.height = 500;
 
-    const startingMinutes = 2
+    const startingMinutes = 0.1
     let time = startingMinutes * 60
 
     setInterval(updateCountdown, 1000)
@@ -71,7 +71,6 @@ buttonEl.addEventListener('click', function startgame() {
 
         playAgainbtn.addEventListener('click', function reloadGame() {
             window.location.reload()
-            resultEl.style.display = "none"
         })
     }
 
