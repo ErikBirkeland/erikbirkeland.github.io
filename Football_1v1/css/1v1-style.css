@@ -27,9 +27,19 @@
     width: fit-content;
     margin: 20px auto;
 }
+
+#play-again {
+    width: fit-content;
+    margin: 20px auto;
+}
+
+#game-over {
+    font-size: 40px;
+}
   
 #canvas1 {
-    border: 5px solid black;
+    border: 5px solid white;
+    border-radius: 15px;
     position: absolute;
     top: 65%;
     left: 50%;

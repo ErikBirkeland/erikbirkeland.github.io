@@ -4,7 +4,10 @@ let scoreRedEl = document.querySelector(".scoreboard_score-one")
 let scoreBlueEl = document.querySelector(".scoreboard_score-two")
 let celebrationEl = document.getElementById("celebration")
 let gameOverEl = document.getElementById("game-over")
+let canvasEl = document.getElementById("canvas1")
+let playAgainbtn = document.getElementById("play-again")
 
+playAgainbtn.style.display = "none"
 scoreboardEl.style.display = "none"
 
 const startingMinutes = 2
@@ -21,7 +24,7 @@ buttonEl.addEventListener('click', function startgame() {
     canvas.width = 1300;
     canvas.height = 500;
 
-    const startingMinutes = 2
+    const startingMinutes = 0.1
     let time = startingMinutes * 60
 
     setInterval(updateCountdown, 1000)
@@ -40,14 +43,22 @@ buttonEl.addEventListener('click', function startgame() {
         }
 
         if (time === 0) {
-            setTimeout(reloadGame, 2000)
+            setTimeout(gameOver, 1000)
         }
     }
-    
-    function reloadGame() {
-        window.location.reload()
-    }
 
+    function gameOver() {
+        canvasEl.style.display = "none"
+        gameOverEl.innerHTML = "Game over"
+
+        countdownEl.style.display = "none"
+
+        playAgainbtn.style.display = "block"
+
+        playAgainbtn.addEventListener('click', function reloadGame() {
+            window.location.reload()
+        })
+    }
 
     class Game {
         constructor(width, height) {
