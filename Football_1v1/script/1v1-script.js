@@ -25,7 +25,7 @@ buttonEl.addEventListener('click', function startgame() {
     canvas.width = 1300;
     canvas.height = 500;
 
-    const startingMinutes = 0.1
+    const startingMinutes = 2
     let time = startingMinutes * 60
 
     setInterval(updateCountdown, 1000)
@@ -59,13 +59,13 @@ buttonEl.addEventListener('click', function startgame() {
 
         resultEl.style.display = "block"
 
-        if(scoreBlueEl.textContent > scoreRedEl.textContent){
+        if (scoreBlueEl.textContent > scoreRedEl.textContent) {
             resultEl.innerHTML = "Blue wins"
         }
-        else if(scoreBlueEl.textContent === scoreRedEl.textContent){
+        else if (scoreBlueEl.textContent === scoreRedEl.textContent) {
             resultEl.innerHTML = "Draw"
         }
-        else{
+        else {
             resultEl.innerHTML = "Red wins"
         }
 
@@ -254,15 +254,13 @@ buttonEl.addEventListener('click', function startgame() {
             this.y += this.vy
             this.vy += this.gravity
 
-            //console.log(this.vy)
-
             // hvis ballen treffer vegg skal retning endres 
             if (this.x + this.width > game.width || this.x - this.width < 0) {
                 this.vx *= -1
             }
 
-            if (this.y + this.height > game.height) { // ||
-                //this.y = game.height - this.height;
+            // ballens bevegelser når ingenting hindrer den
+            if (this.y + this.height > game.height) { 
                 this.vy *= -this.bounce;
 
                 if (Math.abs(this.vx) < 1.1)
@@ -280,11 +278,12 @@ buttonEl.addEventListener('click', function startgame() {
                 this.vy = 0;
             }
 
-
+            // sjekk kollisjon med player1
             if (this.x < player1.x + player1.width &&
                 this.x + this.width > player1.x &&
                 this.y < player1.y + player1.height &&
                 this.y + this.height > player1.y) {
+                // Behandle kollisjon med player1
                 this.vx = this.maxVx
             }
 
@@ -297,6 +296,7 @@ buttonEl.addEventListener('click', function startgame() {
                 this.vx = -this.maxVx
             }
 
+            // sparke knapp
             if (input.keys.includes('e')) {
                 if (this.x < player1.x + player1.width &&
                     this.x + player1.width > player1.x &&
@@ -317,8 +317,8 @@ buttonEl.addEventListener('click', function startgame() {
                 }
             }
 
+            // sjekke kollisjon med mål
             if (this.x < 50 && this.y > 240) {
-                console.log("goal")
                 celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
@@ -332,7 +332,6 @@ buttonEl.addEventListener('click', function startgame() {
 
 
             if (this.x > 1220 && this.y > 240) {
-                console.log("goal")
                 celebrationEl.play()
                 scoreRedEl.textContent = Number(scoreRedEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
@@ -474,7 +473,7 @@ buttonEl.addEventListener('click', function startgame() {
                 player2.x += 2 * player2.maxSpeed;
             }
 
-            
+
         }
     }
 
