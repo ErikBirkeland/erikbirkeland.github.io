@@ -104,6 +104,14 @@
     display: none;
 }
 
+#rkick{
+    display: none;
+}
+
+#mkick{
+    display: none;
+}
+
 @media(max-width: 1000px) {
     #canvas1 {
         display: none;
