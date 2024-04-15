@@ -168,7 +168,7 @@ header .topnav a {
   font-size: 35px;
 }
   
-@media(max-width: 650px) {
+@media(max-width: 950px) {
   header {
     flex-direction: column;
   }
