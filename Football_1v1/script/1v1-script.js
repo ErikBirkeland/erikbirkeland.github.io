@@ -8,6 +8,7 @@ let canvasEl = document.getElementById("canvas1")
 let playAgainbtn = document.getElementById("play-again")
 let resultEl = document.getElementById("result")
 let skinsEl = document.getElementById("skins")
+cashEl = document.querySelector('.cash')
 
 
 playAgainbtn.style.display = "none"
@@ -15,6 +16,18 @@ scoreboardEl.style.display = "none"
 
 const startingMinutes = 2
 let time = startingMinutes / 60
+
+skinsEl.addEventListener('click', newSkins)
+
+let ronaldo = false
+//let messi = false
+
+function newSkins() {
+    ronaldo = true
+    //messi = true
+    localStorage.teller -= 50
+    cashEl.innerHTML = `${localStorage.teller}`
+}
 
 const countdownEl = document.getElementById("countdown")
 
@@ -31,13 +44,7 @@ buttonEl.addEventListener('click', function startgame() {
     const startingMinutes = 0.5
     let time = startingMinutes * 60
 
-    skinsEl.addEventListener('click', newSkins)
 
-    function newSkins() {
-        player1.image = document.getElementById("ronaldo")
-        console.log("ronaldo")
-        console.log("messi")
-    }
 
     setInterval(updateCountdown, 1000)
 
@@ -166,7 +173,12 @@ buttonEl.addEventListener('click', function startgame() {
             this.y = game.height - this.height;
             this.vy = 0;
             this.weight = 1
-            this.image = document.getElementById("player1")
+            //this.image = document.getElementById("player1")
+            if(ronaldo){
+                this.image = document.getElementById("ronaldo")
+            }else {
+                this.image = document.getElementById("player1")
+            }
             this.speed = 0;
             this.maxSpeed = 10;
         }
@@ -208,7 +220,12 @@ buttonEl.addEventListener('click', function startgame() {
             this.y = game.height - this.height;
             this.vy = 0;
             this.weight = 1
-            this.image = document.getElementById("player2")
+            //this.image = document.getElementById("player2")
+            if(messi){
+                this.image = document.getElementById("messi")
+            }else {
+                this.image = document.getElementById("player2")
+            }
             this.speed = 0;
             this.maxSpeed = 10;
         }
