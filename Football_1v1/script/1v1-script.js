@@ -30,6 +30,10 @@ function newSkins() {
     skinsEl.style.display = "none"
 }
 
+if(localStorage.teller < 50){
+    skinsEl.style.display = "none"
+}
+
 const countdownEl = document.getElementById("countdown")
 
 buttonEl.addEventListener('click', function startgame() {
