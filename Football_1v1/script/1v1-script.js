@@ -170,7 +170,7 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('w') && this.onGround()) this.vy = -20;
+            if (input.keys.includes('w') && this.onGround()) this.vy = -15;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
@@ -212,7 +212,7 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -20;
+            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -15;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
