@@ -27,6 +27,7 @@ function newSkins() {
     messi = true
     localStorage.teller -= 50
     cashEl.innerHTML = `${localStorage.teller}`
+    skinsEl.style.display = "none"
 }
 
 const countdownEl = document.getElementById("countdown")
