@@ -30,7 +30,7 @@ function newSkins() {
     skinsEl.style.display = "none"
 }
 
-if(localStorage.teller < 50){
+if (localStorage.teller < 50) {
     skinsEl.style.display = "none"
 }
 
@@ -46,7 +46,7 @@ buttonEl.addEventListener('click', function startgame() {
     const ctx = canvas.getContext('2d');
     canvas.width = 1300;
     canvas.height = 500;
-    
+
     const startingMinutes = 2
     let time = startingMinutes * 60
 
@@ -184,9 +184,9 @@ buttonEl.addEventListener('click', function startgame() {
             this.y = game.height - this.height;
             this.vy = 0;
             this.weight = 1
-            if(ronaldo){
+            if (ronaldo) {
                 this.image = document.getElementById("ronaldo")
-            }else {
+            } else {
                 this.image = document.getElementById("player1")
             }
             this.speed = 0;
@@ -203,7 +203,7 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('w') && this.onGround()) this.vy = -15;
+            if (input.keys.includes('w') && this.onGround()) this.vy = -17;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
@@ -231,9 +231,9 @@ buttonEl.addEventListener('click', function startgame() {
             this.y = game.height - this.height;
             this.vy = 0;
             this.weight = 1
-            if(messi){
+            if (messi) {
                 this.image = document.getElementById("messi")
-            }else {
+            } else {
                 this.image = document.getElementById("player2")
             }
             this.speed = 0;
@@ -250,7 +250,7 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -15;
+            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -17;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
@@ -336,6 +336,13 @@ buttonEl.addEventListener('click', function startgame() {
 
             // sparke knapp
             if (input.keys.includes('e')) {
+                if (ronaldo) {
+                    player1.image = document.getElementById("rkick")
+
+                    setTimeout(() => {
+                        player1.image = document.getElementById("ronaldo")
+                    }, 700)
+                }
                 if (this.x < player1.x + player1.width &&
                     this.x + player1.width > player1.x &&
                     this.y < player1.y + player1.height &&
@@ -346,6 +353,13 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
             if (input.keys.includes('Shift')) {
+                if(messi){
+                    player2.image = document.getElementById("mkick")
+
+                    setTimeout(() => {
+                        player2.image = document.getElementById("messi")
+                    }, 700)
+                }
                 if (this.x < player2.x + player2.width &&
                     this.x + player2.width > player2.x &&
                     this.y < player2.y + player2.height &&
@@ -490,8 +504,22 @@ buttonEl.addEventListener('click', function startgame() {
             context.drawImage(this.image, this.x, this.y, this.width, this.height)
         }
     }
+    class Cloud {
+        constructor(x, y) {
+            this.height = 100;
+            this.width = 200;
+            this.x = x;
+            this.y = y;
+            this.image = document.querySelector(".cloud");
+        }
+
+        draw(context) {
+            context.drawImage(this.image, this.x, this.y, this.width, this.height)
+        }
+    }
 
     let cloud4 = new Cloud4()
+    let cloud5 = new Cloud(800, 30)
 
     // kollisjon mellom spillerne
     function collision() {
