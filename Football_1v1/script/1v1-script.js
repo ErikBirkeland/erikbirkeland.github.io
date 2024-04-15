@@ -17,6 +17,14 @@ let time = startingMinutes / 60
 
 const countdownEl = document.getElementById("countdown")
 
+skinsEl.addEventListener('click', newSkins)
+
+function newSkins() {
+    player1.image = 
+    console.log("ronaldo")
+    console.log("messi")
+}
+
 buttonEl.addEventListener('click', function startgame() {
     buttonEl.style.display = "none"
     scoreboardEl.style.display = "grid"
@@ -176,13 +184,6 @@ buttonEl.addEventListener('click', function startgame() {
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
-
-            skinsEl.addEventListener('click', newSkins)
-
-            function newSkins() {
-                console.log("ronaldo")
-                console.log("messi")
-            }
         }
 
         draw(context) {
