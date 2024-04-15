@@ -20,11 +20,11 @@ let time = startingMinutes / 60
 skinsEl.addEventListener('click', newSkins)
 
 let ronaldo = false
-//let messi = false
+let messi = false
 
 function newSkins() {
     ronaldo = true
-    //messi = true
+    messi = true
     localStorage.teller -= 50
     cashEl.innerHTML = `${localStorage.teller}`
 }
@@ -173,7 +173,6 @@ buttonEl.addEventListener('click', function startgame() {
             this.y = game.height - this.height;
             this.vy = 0;
             this.weight = 1
-            //this.image = document.getElementById("player1")
             if(ronaldo){
                 this.image = document.getElementById("ronaldo")
             }else {
@@ -220,7 +219,6 @@ buttonEl.addEventListener('click', function startgame() {
             this.y = game.height - this.height;
             this.vy = 0;
             this.weight = 1
-            //this.image = document.getElementById("player2")
             if(messi){
                 this.image = document.getElementById("messi")
             }else {
