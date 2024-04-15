@@ -179,7 +179,7 @@ buttonEl.addEventListener('click', function startgame() {
     class Player1 {
         constructor() {
             this.width = 85;
-            this.height = 116;
+            this.height = 120;
             this.x = 100;
             this.y = game.height - this.height;
             this.vy = 0;
