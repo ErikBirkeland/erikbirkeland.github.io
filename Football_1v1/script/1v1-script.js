@@ -7,6 +7,7 @@ let gameOverEl = document.getElementById("game-over")
 let canvasEl = document.getElementById("canvas1")
 let playAgainbtn = document.getElementById("play-again")
 let resultEl = document.getElementById("result")
+let skinsEl = document.getElementById("skins")
 
 playAgainbtn.style.display = "none"
 scoreboardEl.style.display = "none"
@@ -19,6 +20,7 @@ const countdownEl = document.getElementById("countdown")
 buttonEl.addEventListener('click', function startgame() {
     buttonEl.style.display = "none"
     scoreboardEl.style.display = "grid"
+    skinsEl.style.display = "none"
 
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
@@ -170,10 +172,17 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('w') && this.onGround()) this.vy = -20;
+            if (input.keys.includes('w') && this.onGround()) this.vy = -15;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
+
+            skinsEl.addEventListener('click', newSkins)
+
+            function newSkins() {
+                console.log("ronaldo")
+                console.log("messi")
+            }
         }
 
         draw(context) {
@@ -212,7 +221,7 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -20;
+            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -15;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
@@ -259,7 +268,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
             // ballens bevegelser når ingenting hindrer den
-            if (this.y + this.height > game.height) { 
+            if (this.y + this.height > game.height) {
                 this.vy *= -this.bounce;
 
                 if (Math.abs(this.vx) < 1.1)
