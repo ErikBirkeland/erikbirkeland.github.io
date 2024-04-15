@@ -37,10 +37,6 @@ async function getQuestion(){
 
     data = await response.json()
 
-    //console.log(response)
-
-    console.log(data)
-
     questionEl.innerHTML = data[0].question
 
     choices = [data[0].correctAnswer, ...data[0].incorrectAnswers]
