@@ -18,8 +18,6 @@ let time = startingMinutes / 60
 
 const countdownEl = document.getElementById("countdown")
 
-skinsEl.addEventListener('click', newSkins)
-
 buttonEl.addEventListener('click', function startgame() {
     buttonEl.style.display = "none"
     scoreboardEl.style.display = "grid"
@@ -32,6 +30,8 @@ buttonEl.addEventListener('click', function startgame() {
 
     const startingMinutes = 0.5
     let time = startingMinutes * 60
+
+    skinsEl.addEventListener('click', newSkins)
 
     function newSkins() {
         player1.image = document.getElementById("ronaldo")
