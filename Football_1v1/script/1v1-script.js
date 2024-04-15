@@ -17,9 +17,11 @@ scoreboardEl.style.display = "none"
 
 skinsEl.addEventListener('click', newSkins)
 
+// boolske variabler
 let ronaldo = false
 let messi = false
 
+// bytte skins
 function newSkins() {
     ronaldo = true
     messi = true
@@ -34,6 +36,7 @@ if(localStorage.teller < 50){
 
 const countdownEl = document.getElementById("countdown")
 
+// start spillet
 buttonEl.addEventListener('click', function startgame() {
     buttonEl.style.display = "none"
     scoreboardEl.style.display = "grid"
@@ -51,6 +54,7 @@ buttonEl.addEventListener('click', function startgame() {
 
     setInterval(updateCountdown, 1000)
 
+    // starter nedtelling
     function updateCountdown() {
         const minutes = Math.floor(time / 60)
         let seconds = time % 60
@@ -70,6 +74,7 @@ buttonEl.addEventListener('click', function startgame() {
         }
     }
 
+    // spillet er ferdig
     function gameOver() {
         canvasEl.style.display = "none"
         gameOverEl.innerHTML = "Game over"
@@ -95,6 +100,7 @@ buttonEl.addEventListener('click', function startgame() {
         })
     }
 
+    // lager spillet
     class Game {
         constructor(width, height) {
             this.width = width;
@@ -130,6 +136,7 @@ buttonEl.addEventListener('click', function startgame() {
         requestAnimationFrame(animate);
     }
 
+    // lytter etter tastaturet
     class InputHandler {
         constructor() {
             this.keys = [];
@@ -168,6 +175,7 @@ buttonEl.addEventListener('click', function startgame() {
 
     let input = new InputHandler()
 
+    // lager spiller 1
     class Player1 {
         constructor() {
             this.width = 85;
@@ -214,6 +222,7 @@ buttonEl.addEventListener('click', function startgame() {
 
     let player1 = new Player1()
 
+    // lager spiller 2
     class Player2 {
         constructor() {
             this.width = 100;
@@ -260,6 +269,7 @@ buttonEl.addEventListener('click', function startgame() {
 
     let player2 = new Player2()
 
+    // lager ball
     class Ball {
         constructor() {
             this.height = 40
@@ -483,6 +493,7 @@ buttonEl.addEventListener('click', function startgame() {
 
     let cloud4 = new Cloud4()
 
+    // kollisjon mellom spillerne
     function collision() {
         if (player1.x < player2.x + player2.width &&
             player1.x + player1.width > player2.x &&
