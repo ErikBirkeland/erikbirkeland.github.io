@@ -88,6 +88,10 @@
     display: none;
 }
 
+#ronaldo{
+    display: none;
+}
+
 @media(max-width: 1000px) {
     #canvas1 {
         display: none;

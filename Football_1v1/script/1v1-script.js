@@ -9,6 +9,7 @@ let playAgainbtn = document.getElementById("play-again")
 let resultEl = document.getElementById("result")
 let skinsEl = document.getElementById("skins")
 
+
 playAgainbtn.style.display = "none"
 scoreboardEl.style.display = "none"
 
@@ -20,7 +21,7 @@ const countdownEl = document.getElementById("countdown")
 skinsEl.addEventListener('click', newSkins)
 
 function newSkins() {
-    player1.image = 
+    player1.image = document.getElementById("ronaldo")
     console.log("ronaldo")
     console.log("messi")
 }
