@@ -14,8 +14,6 @@ cashEl = document.querySelector('.cash')
 playAgainbtn.style.display = "none"
 scoreboardEl.style.display = "none"
 
-const startingMinutes = 2
-let time = startingMinutes / 60
 
 skinsEl.addEventListener('click', newSkins)
 
@@ -45,8 +43,8 @@ buttonEl.addEventListener('click', function startgame() {
     const ctx = canvas.getContext('2d');
     canvas.width = 1300;
     canvas.height = 500;
-
-    const startingMinutes = 0.5
+    
+    const startingMinutes = 2
     let time = startingMinutes * 60
 
 
