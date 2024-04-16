@@ -203,7 +203,7 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('w') && this.onGround()) this.vy = -17;
+            if (input.keys.includes('w') && this.onGround()) this.vy = -18;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
@@ -250,7 +250,7 @@ buttonEl.addEventListener('click', function startgame() {
             if (this.x > game.width - this.width) this.x = game.width - this.width;
 
             //vertical movement
-            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -17;
+            if (input.keys.includes('ArrowUp') && this.onGround()) this.vy = -18;
             this.y += this.vy;
             if (!this.onGround()) this.vy += this.weight;
             else this.vy = 0;
@@ -370,7 +370,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
             // sjekke kollisjon med mål
-            if (this.x < 35 && this.y > 220) {
+            if (this.x < 40 && this.y > 220) {
                 celebrationEl.play()
                 scoreBlueEl.textContent = Number(scoreBlueEl.textContent) + 1;
                 scoreboardEl.querySelector(".scoreboard_score-one").textContent = scoreRedEl.textContent;
