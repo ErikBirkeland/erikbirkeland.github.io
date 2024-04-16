@@ -443,67 +443,7 @@ buttonEl.addEventListener('click', function startgame() {
 
     let goal2 = new Goal2()
 
-    class Cloud1 {
-        constructor() {
-            this.height = 100;
-            this.width = 200;
-            this.x = 50;
-            this.y = 70;
-            this.image = document.querySelector(".cloud");
-        }
-
-        draw(context) {
-            context.drawImage(this.image, this.x, this.y, this.width, this.height)
-        }
-    }
-
-    let cloud1 = new Cloud1()
-
-    class Cloud2 {
-        constructor() {
-            this.height = 100;
-            this.width = 200;
-            this.x = 350;
-            this.y = 30;
-            this.image = document.querySelector(".cloud");
-        }
-
-        draw(context) {
-            context.drawImage(this.image, this.x, this.y, this.width, this.height)
-        }
-    }
-
-    let cloud2 = new Cloud2()
-
-    class Cloud3 {
-        constructor() {
-            this.height = 100;
-            this.width = 200;
-            this.x = 700;
-            this.y = 80;
-            this.image = document.querySelector(".cloud");
-        }
-
-        draw(context) {
-            context.drawImage(this.image, this.x, this.y, this.width, this.height)
-        }
-    }
-
-    let cloud3 = new Cloud3()
-
-    class Cloud4 {
-        constructor() {
-            this.height = 100;
-            this.width = 200;
-            this.x = 1000;
-            this.y = 40;
-            this.image = document.querySelector(".cloud");
-        }
-
-        draw(context) {
-            context.drawImage(this.image, this.x, this.y, this.width, this.height)
-        }
-    }
+    
     class Cloud {
         constructor(x, y) {
             this.height = 100;
@@ -518,8 +458,10 @@ buttonEl.addEventListener('click', function startgame() {
         }
     }
 
-    let cloud4 = new Cloud4()
-    let cloud5 = new Cloud(800, 30)
+    let cloud1 = new Cloud(50, 70)
+    let cloud2 = new Cloud(350, 30)
+    let cloud3 = new Cloud(700, 80)
+    let cloud4 = new Cloud(1000, 40)
 
     // kollisjon mellom spillerne
     function collision() {
