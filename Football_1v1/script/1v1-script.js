@@ -2,6 +2,8 @@ let buttonEl = document.getElementById("start")
 let scoreboardEl = document.querySelector(".scoreboard")
 let scoreRedEl = document.querySelector(".scoreboard_score-one")
 let scoreBlueEl = document.querySelector(".scoreboard_score-two")
+let nameRedEl = document.querySelector(".scoreboard_name-one")
+let nameBlueEl = document.querySelector(".scoreboard_name-two")
 let celebrationEl = document.getElementById("celebration")
 let gameOverEl = document.getElementById("game-over")
 let canvasEl = document.getElementById("canvas1")
@@ -28,6 +30,11 @@ function newSkins() {
     localStorage.teller -= 50
     cashEl.innerHTML = `${localStorage.teller}`
     skinsEl.style.display = "none"
+
+    nameRedEl.textContent = "Ronaldo"
+    nameBlueEl.textContent = "Messi"
+
+    
 }
 
 if (localStorage.teller < 50) {
