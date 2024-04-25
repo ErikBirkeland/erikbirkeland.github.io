@@ -33,8 +33,6 @@ function newSkins() {
 
     nameRedEl.textContent = "Ronaldo"
     nameBlueEl.textContent = "Messi"
-
-    
 }
 
 if (localStorage.teller < 50) {

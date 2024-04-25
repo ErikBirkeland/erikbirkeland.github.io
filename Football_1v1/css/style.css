@@ -20,7 +20,7 @@
 
 body {
   background-color: var(--background);
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
 
   display: flex;
@@ -52,6 +52,7 @@ p {
 }
 
 main {
+  width: 95%;
   flex: 1;
   margin-left: auto;
   margin-right: auto;
