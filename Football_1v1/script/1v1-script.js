@@ -120,11 +120,11 @@ buttonEl.addEventListener('click', function startgame() {
         }
 
         draw(context) {
-            player1.draw(context)
-            player2.draw(context)
             ball.draw(context)
             goal1.draw(context)
             goal2.draw(context)
+            player1.draw(context)
+            player2.draw(context)
             cloud1.draw(context)
             cloud2.draw(context)
             cloud3.draw(context)
@@ -179,6 +179,40 @@ buttonEl.addEventListener('click', function startgame() {
     }
 
     let input = new InputHandler()
+
+    class Goal1 {
+        constructor() {
+            this.height = 625;
+            this.width = 250;
+            this.x = -145;
+            this.y = 52;
+            this.image = document.getElementById('goal1');
+        }
+
+        draw(context) {
+            context.fillRect(this.x, this.y, this.width, this.height)
+            context.drawImage(this.image, this.x, this.y, this.width, this.height)
+        }
+    }
+
+    let goal1 = new Goal1()
+
+    class Goal2 {
+        constructor() {
+            this.height = 625;
+            this.width = 250;
+            this.x = 1195;
+            this.y = 52;
+            this.image = document.getElementById("goal2");
+        }
+
+        draw(context) {
+            context.fillRect(this.x, this.y, this.width, this.height)
+            context.drawImage(this.image, this.x, this.y, this.width, this.height)
+        }
+    }
+
+    let goal2 = new Goal2()
 
     // lager spiller 1
     class Player1 {
@@ -358,7 +392,7 @@ buttonEl.addEventListener('click', function startgame() {
             }
 
             if (input.keys.includes('Shift')) {
-                if(messi){
+                if (messi) {
                     player2.image = document.getElementById("mkick")
 
                     setTimeout(() => {
@@ -414,41 +448,7 @@ buttonEl.addEventListener('click', function startgame() {
     }
     let ball = new Ball()
 
-    class Goal1 {
-        constructor() {
-            this.height = 625;
-            this.width = 250;
-            this.x = -145;
-            this.y = 52;
-            this.image = document.getElementById('goal1');
-        }
 
-        draw(context) {
-            context.fillRect(this.x, this.y, this.width, this.height)
-            context.drawImage(this.image, this.x, this.y, this.width, this.height)
-        }
-    }
-
-    let goal1 = new Goal1()
-
-    class Goal2 {
-        constructor() {
-            this.height = 625;
-            this.width = 250;
-            this.x = 1195;
-            this.y = 52;
-            this.image = document.getElementById("goal2");
-        }
-
-        draw(context) {
-            context.fillRect(this.x, this.y, this.width, this.height)
-            context.drawImage(this.image, this.x, this.y, this.width, this.height)
-        }
-    }
-
-    let goal2 = new Goal2()
-
-    
     class Cloud {
         constructor(x, y) {
             this.height = 100;

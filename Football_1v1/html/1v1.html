@@ -34,46 +34,47 @@
     </header>
 
     <br>
+        <p id="countdown"></p>
 
-    <p id="countdown"></p>
+        <div class="scoreboard">
+            <div class="scoreboard_name scoreboard_name-one">Red</div>
+            <div class="scoreboard_name scoreboard_name-two">Blue</div>
+            <div class="scoreboard_score scoreboard_score-one">0</div>
+            <div class="scoreboard_score scoreboard_score-two">0</div>
+        </div>
 
-    <div class="scoreboard">
-        <div class="scoreboard_name scoreboard_name-one">Red</div>
-        <div class="scoreboard_name scoreboard_name-two">Blue</div>
-        <div class="scoreboard_score scoreboard_score-one">0</div>
-        <div class="scoreboard_score scoreboard_score-two">0</div>
-    </div>
+        <button id="start">Start Game</button>
 
-    <button id="start">Start Game</button>
+        <p id="available">This game is not available in this format. </p>
 
-    <p id="available">This game is not available in this format. </p>
+        <br><br><br>
 
-    <br><br><br>
+        <p id="game-over"></p>
 
-    <p id="game-over"></p>
+        <p id="result"></p>
 
-    <p id="result"></p>
+        <br><br>
 
-    <br><br>
+        <button id="play-again">Play again</button>
 
-    <button id="play-again">Play again</button>
+        <canvas id="canvas1"></canvas>
 
-    <canvas id="canvas1"></canvas>
+        <img id="player1" src="../bilder/red.png" alt="Picture of red character">
+        <img id="player2" src="../bilder/blue.png" alt="Picture of blue character">
+        <img id="ball" src="../bilder/fotball.png" alt="Picture of a football">
+        <img id="goal1" src="../bilder/goal1.png" alt="Picture of a goal">
+        <img id="goal2" src="../bilder/goal2.png" alt="Picture of a goal">
+        <img class="cloud" src="../bilder/cloud.png" alt="Picture of a cloud">
+        <img id="ronaldo" src="../bilder/ronaldo.png" alt="Picture of Ronaldo">
+        <img id="messi" src="../bilder/messi.png" alt="Picture of Messi">
+        <img id="rkick" src="../bilder/rkicking.png" alt="Ronaldo kicking">
+        <img id="mkick" src="../bilder/mkicking.png" alt="Messi Kicking">
 
-    <img id="player1" src="../bilder/red.png" alt="Picture of red character">
-    <img id="player2" src="../bilder/blue.png" alt="Picture of blue character">
-    <img id="ball" src="../bilder/fotball.png" alt="Picture of a football">
-    <img id="goal1" src="../bilder/goal1.png" alt="Picture of a goal">
-    <img id="goal2" src="../bilder/goal2.png" alt="Picture of a goal">
-    <img class="cloud" src="../bilder/cloud.png" alt="Picture of a cloud">
-    <img id="ronaldo" src="../bilder/ronaldo.png" alt="Picture of Ronaldo">
-    <img id="messi" src="../bilder/messi.png" alt="Picture of Messi">
-    <img id ="rkick" src="../bilder/rkicking.png" alt="Ronaldo kicking">
-    <img id="mkick" src="../bilder/mkicking.png" alt="Messi Kicking">
+        <audio id="celebration" src="../lyd/goal.mp3"></audio>
 
-    <audio id="celebration" src="../lyd/goal.mp3"></audio>
+        <button id="skins">Buy Skins</button>
 
-    <button id="skins">Buy Skins</button>
+
 
     <script src="../script/script.js"></script>
     <script src="../script/1v1-script.js"></script>
