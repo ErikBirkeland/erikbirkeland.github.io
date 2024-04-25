@@ -71,12 +71,6 @@ async function getQuestion(){
 
 subbtnEl.addEventListener('click', answer)
 
-if(!localStorage.teller){
-    localStorage.teller = 0
-}else{
-    localStorage.teller = Number(localStorage.teller)
-}
-
 function answer (){
     const radioButtons = document.getElementsByName("q");
 
