@@ -17,3 +17,9 @@
     margin-bottom: 20px;
     cursor: pointer;
 }
+
+#submit{
+    background-color: white;
+    color: var(--light-blue);
+    border: 2px solid var(--light-blue);
+}
