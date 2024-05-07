@@ -61,7 +61,13 @@
       var(--grass) 100%
     );
 }
-  
+
+div {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
 #blue {
     display: none;
 }
