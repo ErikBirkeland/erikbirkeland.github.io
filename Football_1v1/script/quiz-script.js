@@ -75,6 +75,7 @@ function answer (){
     const radioButtons = document.getElementsByName("q");
 
     let selectedAnswer;
+
     for (let i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
             selectedAnswer = radioButtons[i].value;
