@@ -159,6 +159,7 @@ buttonEl.addEventListener('click', function startgame() {
                     e.key === 'Shift'
                 ) && this.keys.indexOf(e.key) === -1) {
                     this.keys.push(e.key);
+                    e.preventDefault();
                 }
             });
             window.addEventListener('keyup', e => {
