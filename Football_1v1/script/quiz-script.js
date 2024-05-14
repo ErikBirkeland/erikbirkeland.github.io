@@ -61,6 +61,16 @@ async function getQuestion(){
     labelAnswerThree.innerHTML = answerThreeInput.value;
     labelAnswerFour.innerHTML = answerFourInput.value;
 
+    labelAnswerOne.classList.remove("correct", "wrong");
+    labelAnswerTwo.classList.remove("correct", "wrong");
+    labelAnswerThree.classList.remove("correct", "wrong");
+    labelAnswerFour.classList.remove("correct", "wrong");
+
+    const radioButtons = document.getElementsByName("q");
+    for (let i = 0; i < radioButtons.length; i++) {
+        radioButtons[i].disabled = false;
+    }
+
     questionContainerEl.style.display = 'grid'
 
     newbtnEl.style.display = 'none'
@@ -71,29 +81,70 @@ async function getQuestion(){
 
 subbtnEl.addEventListener('click', answer)
 
-function answer (){
+function answer() {
     const radioButtons = document.getElementsByName("q");
-
     let selectedAnswer;
 
     for (let i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
-            selectedAnswer = radioButtons[i].value;
+            selectedAnswer = radioButtons[i];
+            break;
         }
     }
-        
-    if (selectedAnswer == data[0].correctAnswer){
-        feedbackEl.innerHTML = "correct +10 coins"
-        localStorage.teller = Number(localStorage.teller) + 10
-        cashEl.innerHTML = `${localStorage.teller}`
-    }else{
-        feedbackEl.innerHTML = "wrong"
+
+    const correctAnswer = document.querySelector(`input[value='${data[0].correctAnswer}']`);
+
+    if (selectedAnswer && selectedAnswer.value === data[0].correctAnswer) {
+        feedbackEl.innerHTML = "correct +10 coins";
+        localStorage.teller = Number(localStorage.teller) + 10;
+        cashEl.innerHTML = localStorage.teller;
+        selectedAnswer.nextElementSibling.classList.add("correct");
+    } else {
+        feedbackEl.innerHTML = "wrong";
+        if (selectedAnswer) {
+            selectedAnswer.nextElementSibling.classList.add("wrong");
+        }
+        if (correctAnswer) {
+            correctAnswer.nextElementSibling.classList.add("correct");
+        }
     }
 
     for (let i = 0; i < radioButtons.length; i++) {
         radioButtons[i].checked = false;
+        radioButtons[i].disabled = true;
     }
 
-    newbtnEl.style.display = 'block'
-    subbtnEl.style.display = 'none'
+    newbtnEl.style.display = 'block';
+    subbtnEl.style.display = 'none';
 }
+
+// function answer (){
+//     const radioButtons = document.getElementsByName("q");
+
+//     let selectedAnswer;
+
+//     for (let i = 0; i < radioButtons.length; i++) {
+//         if (radioButtons[i].checked) {
+//             selectedAnswer = radioButtons[i].value;
+//         }
+//     }
+        
+//     if (selectedAnswer == data[0].correctAnswer){
+//         feedbackEl.innerHTML = "correct +10 coins"
+//         localStorage.teller = Number(localStorage.teller) + 10
+//         cashEl.innerHTML = `${localStorage.teller}`
+//         selectedAnswer.style.color = "green"
+//     }else{
+//         feedbackEl.innerHTML = "wrong"
+//         selectedAnswer.style.color = "red"
+//         data[0].correctAnswer.style.color = "green"
+//     }
+
+//     for (let i = 0; i < radioButtons.length; i++) {
+//         radioButtons[i].checked = false;
+//         radioButtons[i].disabled = true;
+//     }
+
+//     newbtnEl.style.display = 'block'
+//     subbtnEl.style.display = 'none'
+// }
