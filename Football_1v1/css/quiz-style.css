@@ -24,6 +24,12 @@
     border: 2px solid var(--light-blue);
 }
 
+#submit:hover {
+    color: var(--blue);
+    transition: 0.3s;
+    border: 2px solid var(--blue);
+}
+
 .correct {
     color: green;
 }
